@@ -14,6 +14,7 @@ slam/third_party/
 slam/checkpoints*/
 
 # Host-only artefacts
+.DS_Store
 index.html*
 *.insv
 data/OverMaps-1K-full/
