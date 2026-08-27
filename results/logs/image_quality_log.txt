@@ -1,0 +1,24 @@
+nohup: ignoring input
+
+UUID       Scene                               Time         Wx              Frames   Sharpness    Brightness   Contrast   Resolution
+----------------------------------------------------------------------------------------------------------------------------------
+acc84284   Waterfront;Beach                    Morning      Sunny           299      1511.2       148.6        41.3       ['1071x1905']
+99bc9580   Urban;City Square                   Morning      Clear           299      598.0        123.3        69.8       ['1059x1884']
+cfc399dc   Natural Landscape;Park              Afternoon    Sunny           226      2059.4       117.8        57.9       ['1059x1883']
+904fc0bf   Urban;City Park                     Morning      Sunny           300      1466.8       128.2        73.4       ['1060x1886']
+cf193a84   Urban;City Park                     Afternoon    Rainy           299      396.8        146.3        70.3       ['1410x1881']
+077440b5   Natural Landscape;Forest            Morning      Sunny           299      1908.1       111.4        68.8       ['1070x1904']
+8e1e4107   Natural Landscape;Park              Afternoon    Sunny           299      612.8        112.5        70.0       ['1058x1883']
+6dcff26a   Interior;Shopping Mall              Morning      Indoor          300      61.0         157.7        55.0       ['1425x1900']
+6562f66d   Urban;City Square                   Afternoon    Partly Cloudy   300      355.3        115.2        64.3       ['1062x1416']
+8e2217c3   Urban;City Street                   Afternoon    Clear           297      469.4        133.2        69.0       ['1055x1876']
+1c4784a9   Urban;City Street                   Afternoon    Sunny           300      662.7        126.3        72.1       ['1045x1860']
+0983df21   Natural Landscape;Forest            Afternoon    Sunny           114      572.4        115.0        66.7       ['1071x1905']
+72217f1d   Waterfront;Beach                    Dusk         Partly Cloudy   299      28.9         115.8        60.6       ['1419x1893']
+
+========== SUMMARY ==========
+Mean sharpness  : 823.3  (higher=sharper, >100 is good)
+Mean brightness : 127.0  (0-255 scale, ~128 is neutral)
+Mean contrast   : 64.6
+Resolutions seen: {'1055x1876', '1425x1900', '1419x1893', '1059x1883', '1060x1886', '1058x1883', '1071x1905', '1070x1904', '1059x1884', '1062x1416', '1410x1881', '1045x1860'}
+Done. Results saved to image_quality_results.json

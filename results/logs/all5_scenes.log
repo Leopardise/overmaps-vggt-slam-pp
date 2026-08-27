@@ -1,0 +1,162 @@
+nohup: ignoring input
+
+Running 5 scene(s):
+  Urban_CityStreet_Afternoon_Clear
+  Urban_CityStreet_Night_Clear
+  Interior_Mall_Morning_Indoor
+  Urban_CityPark_Afternoon_Rainy
+  Natural_Forest_Morning_Sunny
+
+[19:41:47] ============================================================
+[19:41:47] SEQUENCE : Urban_CityStreet_Afternoon_Clear
+[19:41:47] UUID     : 8e2217c3-bb88-45ad-ba3f-7c9d7b3232f5
+[19:41:47] Root     : /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Afternoon_Clear
+[19:41:47] ============================================================
+[19:41:47] STEP 1: main.py — VGGT + DEM + submap dump
+[19:41:47] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 main.py --image_folder /data1/avilasha2/overmaps/OverMaps-1K/images/8e2217c3-bb88-45ad-ba3f-7c9d7b3232f5 --submap_size 32 --overlapping_window_size 1 --min_disparity 40 --use_sim3 --dump_submaps --make_global_dem_tiled --global_dem_out_dir /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Afternoon_Clear --global_target_px 90000 --global_tile_px 4096 --global_reducer softmax --global_softmax_tau 0.02 --global_cycle_m 0.001 --global_edge_strength 0.95 --global_shade_strength 0.70 --global_dark_level 0.09 --global_unsharp_radius 1.0 --global_unsharp_amount 0.8 --global_clahe_clip 2.0 --global_clahe_grid 8 --log_results --skip_dense_log --log_path /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Afternoon_Clear/poses_vanilla.txt
+[20:06:03] STEP 1 done. Submaps: 10
+[20:06:03] STEP 2: backend_watch — chip + DINOv2 embed
+[20:06:03]   backend_watch PID=868484 | target: 10 submaps
+[20:07:03]   backend_watch: 4/10 embedded
+[20:07:18]   backend_watch: 5/10 embedded
+[20:07:48]   backend_watch: 6/10 embedded
+[20:08:33]   backend_watch: 7/10 embedded
+[20:09:18]   backend_watch: 8/10 embedded
+[20:11:33]   backend_watch: 9/10 embedded
+[20:12:18]   backend_watch: 10/10 embedded
+[20:12:18]   backend_watch: ALL done. Terminating.
+[20:12:23]   backend_watch terminated.
+[20:12:23] STEP 2 done. 10/10 submaps embedded.
+[20:12:23] STEP 3: embed_global_tiles.py
+[20:12:23] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/embed_global_tiles.py --root /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Afternoon_Clear --dino-model facebook/dinov2-base --mode resize --max-edge 1536 --overwrite
+[20:14:39] STEP 4: faiss_global_index.py
+[20:14:39] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/faiss_global_index.py --root /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Afternoon_Clear --index hnsw --hnsw-M 32 --hnsw-efC 200
+[20:14:39] STEP 5a: build_tile_owners.py
+[20:14:39] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/build_tile_owners.py --root /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Afternoon_Clear --overwrite
+[20:14:39] STEP 5b: vis_submap_ownership.py
+[20:14:39] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/vis_submap_ownership.py --root /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Afternoon_Clear --alpha 0.35 --grid
+[20:14:40] STEP 5c: run_batch_submaps.sh
+[20:14:40] CMD: bash vggt_slam/tools/run_batch_submaps.sh /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Afternoon_Clear 0 20 --dino facebook/dinov2-base --faiss hnsw --match-topk 20 --vote-topn 10 --vote-pad 0 --vpr-clusters 64 --vpr-topk 50 --max-edge 1024 --force --update-loop-votes --per-chip-topk 7 --topn-loop 7
+[20:17:03]   WARNING: exited 1
+[20:17:03]   loop_votes.csv: 2 candidate pairs
+[20:17:03] STEP 6: patch loop_closure.py + optimised trajectory
+[20:17:03]   [patch] VOTES_CSV_IN  -> /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Afternoon_Clear/anyloc_io/loop_votes.csv
+[20:17:03]   [patch] PAIRS_CSV_OUT -> /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Afternoon_Clear/anyloc_io/loop_pairs_ordered.csv
+[20:17:03] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 main.py --image_folder /data1/avilasha2/overmaps/OverMaps-1K/images/8e2217c3-bb88-45ad-ba3f-7c9d7b3232f5 --submap_size 32 --overlapping_window_size 1 --min_disparity 40 --use_sim3 --max_loops 7 --global_dem_out_dir /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Afternoon_Clear --global_target_px 90000 --global_tile_px 4096 --global_reducer softmax --global_softmax_tau 0.02 --global_cycle_m 0.001 --global_edge_strength 0.95 --global_shade_strength 0.70 --global_dark_level 0.09 --global_unsharp_radius 1.0 --global_unsharp_amount 0.8 --global_clahe_clip 2.0 --global_clahe_grid 8 --log_results --skip_dense_log --log_path /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Afternoon_Clear/poses.txt
+[20:17:27]   WARNING: exited 1
+[20:17:27]   [restore] loop_closure.py restored
+[20:17:27] WARNING: poses.txt not found
+[20:17:27] SEQUENCE COMPLETE: Urban_CityStreet_Afternoon_Clear
+[20:17:27] ============================================================
+✓ Urban_CityStreet_Afternoon_Clear
+[20:17:27] ============================================================
+[20:17:27] SEQUENCE : Urban_CityStreet_Night_Clear
+[20:17:27] UUID     : dd329eef-e796-4915-8ce0-dc8e3e844840
+[20:17:27] Root     : /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear
+[20:17:27] ============================================================
+[20:17:27] STEP 1: main.py — VGGT + DEM + submap dump
+[20:17:27] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 main.py --image_folder /data1/avilasha2/overmaps/OverMaps-1K/images/dd329eef-e796-4915-8ce0-dc8e3e844840 --submap_size 32 --overlapping_window_size 1 --min_disparity 40 --use_sim3 --dump_submaps --make_global_dem_tiled --global_dem_out_dir /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear --global_target_px 90000 --global_tile_px 4096 --global_reducer softmax --global_softmax_tau 0.02 --global_cycle_m 0.001 --global_edge_strength 0.95 --global_shade_strength 0.70 --global_dark_level 0.09 --global_unsharp_radius 1.0 --global_unsharp_amount 0.8 --global_clahe_clip 2.0 --global_clahe_grid 8 --log_results --skip_dense_log --log_path /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/poses_vanilla.txt
+[20:17:32]   WARNING: exited 1
+[20:17:32] STEP 1 done. Submaps: 0
+[20:17:32] ERROR: No submaps. Skipping.
+✗ Urban_CityStreet_Night_Clear
+[20:17:32] ============================================================
+[20:17:32] SEQUENCE : Interior_Mall_Morning_Indoor
+[20:17:32] UUID     : 6dcff26a-ed5d-46c0-b78c-c8af7124dc03
+[20:17:32] Root     : /data1/avilasha2/overmaps/vggt_outputs/Interior_Mall_Morning_Indoor
+[20:17:32] ============================================================
+[20:17:32] STEP 1: main.py — VGGT + DEM + submap dump
+[20:17:32] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 main.py --image_folder /data1/avilasha2/overmaps/OverMaps-1K/images/6dcff26a-ed5d-46c0-b78c-c8af7124dc03 --submap_size 32 --overlapping_window_size 1 --min_disparity 40 --use_sim3 --dump_submaps --make_global_dem_tiled --global_dem_out_dir /data1/avilasha2/overmaps/vggt_outputs/Interior_Mall_Morning_Indoor --global_target_px 90000 --global_tile_px 4096 --global_reducer softmax --global_softmax_tau 0.02 --global_cycle_m 0.001 --global_edge_strength 0.95 --global_shade_strength 0.70 --global_dark_level 0.09 --global_unsharp_radius 1.0 --global_unsharp_amount 0.8 --global_clahe_clip 2.0 --global_clahe_grid 8 --log_results --skip_dense_log --log_path /data1/avilasha2/overmaps/vggt_outputs/Interior_Mall_Morning_Indoor/poses_vanilla.txt
+[20:17:38]   WARNING: exited 1
+[20:17:38] STEP 1 done. Submaps: 0
+[20:17:38] ERROR: No submaps. Skipping.
+✗ Interior_Mall_Morning_Indoor
+[20:17:38] ============================================================
+[20:17:38] SEQUENCE : Urban_CityPark_Afternoon_Rainy
+[20:17:38] UUID     : cf193a84-cb9a-4416-8e35-c5bb726d18ab
+[20:17:38] Root     : /data1/avilasha2/overmaps/vggt_outputs/Urban_CityPark_Afternoon_Rainy
+[20:17:38] ============================================================
+[20:17:38] STEP 1: main.py — VGGT + DEM + submap dump
+[20:17:38] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 main.py --image_folder /data1/avilasha2/overmaps/OverMaps-1K/images/cf193a84-cb9a-4416-8e35-c5bb726d18ab --submap_size 32 --overlapping_window_size 1 --min_disparity 40 --use_sim3 --dump_submaps --make_global_dem_tiled --global_dem_out_dir /data1/avilasha2/overmaps/vggt_outputs/Urban_CityPark_Afternoon_Rainy --global_target_px 90000 --global_tile_px 4096 --global_reducer softmax --global_softmax_tau 0.02 --global_cycle_m 0.001 --global_edge_strength 0.95 --global_shade_strength 0.70 --global_dark_level 0.09 --global_unsharp_radius 1.0 --global_unsharp_amount 0.8 --global_clahe_clip 2.0 --global_clahe_grid 8 --log_results --skip_dense_log --log_path /data1/avilasha2/overmaps/vggt_outputs/Urban_CityPark_Afternoon_Rainy/poses_vanilla.txt
+[20:51:43] STEP 1 done. Submaps: 10
+[20:51:43] STEP 2: backend_watch — chip + DINOv2 embed
+[20:51:43]   backend_watch PID=881792 | target: 10 submaps
+[20:53:28]   backend_watch: 1/10 embedded
+[20:54:28]   backend_watch: 2/10 embedded
+[20:55:28]   backend_watch: 3/10 embedded
+[20:55:58]   backend_watch: 4/10 embedded
+[20:57:13]   backend_watch: 5/10 embedded
+[20:58:58]   backend_watch: 6/10 embedded
+[21:00:13]   backend_watch: 7/10 embedded
+[21:01:13]   backend_watch: 8/10 embedded
+[21:01:43]   backend_watch: 9/10 embedded
+[21:02:43]   backend_watch: 10/10 embedded
+[21:02:43]   backend_watch: ALL done. Terminating.
+[21:02:48]   backend_watch terminated.
+[21:02:48] STEP 2 done. 10/10 submaps embedded.
+[21:02:48] STEP 3: embed_global_tiles.py
+[21:02:48] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/embed_global_tiles.py --root /data1/avilasha2/overmaps/vggt_outputs/Urban_CityPark_Afternoon_Rainy --dino-model facebook/dinov2-base --mode resize --max-edge 1536 --overwrite
+[21:06:19] STEP 4: faiss_global_index.py
+[21:06:19] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/faiss_global_index.py --root /data1/avilasha2/overmaps/vggt_outputs/Urban_CityPark_Afternoon_Rainy --index hnsw --hnsw-M 32 --hnsw-efC 200
+[21:06:21] STEP 5a: build_tile_owners.py
+[21:06:21] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/build_tile_owners.py --root /data1/avilasha2/overmaps/vggt_outputs/Urban_CityPark_Afternoon_Rainy --overwrite
+[21:06:21] STEP 5b: vis_submap_ownership.py
+[21:06:21] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/vis_submap_ownership.py --root /data1/avilasha2/overmaps/vggt_outputs/Urban_CityPark_Afternoon_Rainy --alpha 0.35 --grid
+[21:06:22] STEP 5c: run_batch_submaps.sh
+[21:06:22] CMD: bash vggt_slam/tools/run_batch_submaps.sh /data1/avilasha2/overmaps/vggt_outputs/Urban_CityPark_Afternoon_Rainy 0 20 --dino facebook/dinov2-base --faiss hnsw --match-topk 20 --vote-topn 10 --vote-pad 0 --vpr-clusters 64 --vpr-topk 50 --max-edge 1024 --force --update-loop-votes --per-chip-topk 7 --topn-loop 7
+[21:33:09]   WARNING: exited 1
+[21:33:09]   loop_votes.csv: 10 candidate pairs
+[21:33:09] STEP 6: patch loop_closure.py + optimised trajectory
+[21:33:09]   [patch] VOTES_CSV_IN  -> /data1/avilasha2/overmaps/vggt_outputs/Urban_CityPark_Afternoon_Rainy/anyloc_io/loop_votes.csv
+[21:33:09]   [patch] PAIRS_CSV_OUT -> /data1/avilasha2/overmaps/vggt_outputs/Urban_CityPark_Afternoon_Rainy/anyloc_io/loop_pairs_ordered.csv
+[21:33:09] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 main.py --image_folder /data1/avilasha2/overmaps/OverMaps-1K/images/cf193a84-cb9a-4416-8e35-c5bb726d18ab --submap_size 32 --overlapping_window_size 1 --min_disparity 40 --use_sim3 --max_loops 7 --global_dem_out_dir /data1/avilasha2/overmaps/vggt_outputs/Urban_CityPark_Afternoon_Rainy --global_target_px 90000 --global_tile_px 4096 --global_reducer softmax --global_softmax_tau 0.02 --global_cycle_m 0.001 --global_edge_strength 0.95 --global_shade_strength 0.70 --global_dark_level 0.09 --global_unsharp_radius 1.0 --global_unsharp_amount 0.8 --global_clahe_clip 2.0 --global_clahe_grid 8 --log_results --skip_dense_log --log_path /data1/avilasha2/overmaps/vggt_outputs/Urban_CityPark_Afternoon_Rainy/poses.txt
+[21:35:25]   [restore] loop_closure.py restored
+[21:35:25] STEP 6 done. poses.txt: 307 lines -> /data1/avilasha2/overmaps/vggt_outputs/Urban_CityPark_Afternoon_Rainy/poses.txt
+[21:35:25] SEQUENCE COMPLETE: Urban_CityPark_Afternoon_Rainy
+[21:35:25] ============================================================
+✓ Urban_CityPark_Afternoon_Rainy
+[21:35:25] ============================================================
+[21:35:25] SEQUENCE : Natural_Forest_Morning_Sunny
+[21:35:25] UUID     : 077440b5-e71f-4a08-840a-d8b5737d111f
+[21:35:25] Root     : /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny
+[21:35:25] ============================================================
+[21:35:25] STEP 1: main.py — VGGT + DEM + submap dump
+[21:35:25] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 main.py --image_folder /data1/avilasha2/overmaps/OverMaps-1K/images/077440b5-e71f-4a08-840a-d8b5737d111f --submap_size 32 --overlapping_window_size 1 --min_disparity 40 --use_sim3 --dump_submaps --make_global_dem_tiled --global_dem_out_dir /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny --global_target_px 90000 --global_tile_px 4096 --global_reducer softmax --global_softmax_tau 0.02 --global_cycle_m 0.001 --global_edge_strength 0.95 --global_shade_strength 0.70 --global_dark_level 0.09 --global_unsharp_radius 1.0 --global_unsharp_amount 0.8 --global_clahe_clip 2.0 --global_clahe_grid 8 --log_results --skip_dense_log --log_path /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/poses_vanilla.txt
+[22:01:15] STEP 1 done. Submaps: 10
+[22:01:15] STEP 2: backend_watch — chip + DINOv2 embed
+[22:01:15]   backend_watch PID=902945 | target: 10 submaps
+[22:03:15]   backend_watch: 1/10 embedded
+[22:04:31]   backend_watch: 2/10 embedded
+[22:05:01]   backend_watch: 3/10 embedded
+[22:05:31]   backend_watch: 4/10 embedded
+[22:06:01]   backend_watch: 5/10 embedded
+[22:06:31]   backend_watch: 6/10 embedded
+[22:06:46]   backend_watch: 7/10 embedded
+[22:07:16]   backend_watch: 8/10 embedded
+[22:07:46]   backend_watch: 10/10 embedded
+[22:07:46]   backend_watch: ALL done. Terminating.
+[22:07:51]   backend_watch terminated.
+[22:07:51] STEP 2 done. 10/10 submaps embedded.
+[22:07:51] STEP 3: embed_global_tiles.py
+[22:07:51] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/embed_global_tiles.py --root /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny --dino-model facebook/dinov2-base --mode resize --max-edge 1536 --overwrite
+[22:10:00] STEP 4: faiss_global_index.py
+[22:10:00] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/faiss_global_index.py --root /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny --index hnsw --hnsw-M 32 --hnsw-efC 200
+[22:10:01] STEP 5a: build_tile_owners.py
+[22:10:01] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/build_tile_owners.py --root /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny --overwrite
+[22:10:01] STEP 5b: vis_submap_ownership.py
+[22:10:01] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/vis_submap_ownership.py --root /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny --alpha 0.35 --grid
+[22:10:01] STEP 5c: run_batch_submaps.sh
+[22:10:01] CMD: bash vggt_slam/tools/run_batch_submaps.sh /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny 0 20 --dino facebook/dinov2-base --faiss hnsw --match-topk 20 --vote-topn 10 --vote-pad 0 --vpr-clusters 64 --vpr-topk 50 --max-edge 1024 --force --update-loop-votes --per-chip-topk 7 --topn-loop 7
+[22:28:20]   WARNING: exited 1
+[22:28:20]   loop_votes.csv: 10 candidate pairs
+[22:28:20] STEP 6: patch loop_closure.py + optimised trajectory
+[22:28:20]   [patch] VOTES_CSV_IN  -> /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/loop_votes.csv
+[22:28:20]   [patch] PAIRS_CSV_OUT -> /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/loop_pairs_ordered.csv
+[22:28:20] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 main.py --image_folder /data1/avilasha2/overmaps/OverMaps-1K/images/077440b5-e71f-4a08-840a-d8b5737d111f --submap_size 32 --overlapping_window_size 1 --min_disparity 40 --use_sim3 --max_loops 7 --global_dem_out_dir /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny --global_target_px 90000 --global_tile_px 4096 --global_reducer softmax --global_softmax_tau 0.02 --global_cycle_m 0.001 --global_edge_strength 0.95 --global_shade_strength 0.70 --global_dark_level 0.09 --global_unsharp_radius 1.0 --global_unsharp_amount 0.8 --global_clahe_clip 2.0 --global_clahe_grid 8 --log_results --skip_dense_log --log_path /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/poses.txt
+[22:30:29]   [restore] loop_closure.py restored
+[22:30:29] STEP 6 done. poses.txt: 306 lines -> /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/poses.txt
+[22:30:29] SEQUENCE COMPLETE: Natural_Forest_Morning_Sunny
+[22:30:29] ============================================================
+✓ Natural_Forest_Morning_Sunny
+
+All done.

@@ -1,0 +1,41 @@
+nohup: ignoring input
+[12:28:41] ============================================================
+[12:28:41] CLIP     : Insta360_Clip2_77frames
+[12:28:41] DESC     : Venice (77-series, 94 frames)
+[12:28:41] Root     : /data1/avilasha2/overmaps/vggt_outputs_insta360/Insta360_Clip2_77frames
+[12:28:41] ============================================================
+[12:28:41] STEP 0: equirectangular -> perspective crop conversion
+[12:28:41]   Converting 94 equirectangular frames -> 1024x1024 perspective crops
+[12:28:41]   FoV=90° yaw=0° pitch=0°
+[12:28:47]   Converted 94/94 frames -> /data1/avilasha2/overmaps/vggt_outputs_insta360/Insta360_Clip2_77frames/perspective_images
+[12:28:47] STEP 1: main.py — VGGT + DEM + submap dump
+[12:28:47] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 main.py --image_folder /data1/avilasha2/overmaps/vggt_outputs_insta360/Insta360_Clip2_77frames/perspective_images --vggt_ckpt /home/avilasha2/scratch/caches/torch/hub/checkpoints/model.pt --submap_size 32 --overlapping_window_size 1 --min_disparity 40 --use_sim3 --global_dem_out_dir /data1/avilasha2/overmaps/vggt_outputs_insta360/Insta360_Clip2_77frames --global_target_px 90000 --global_tile_px 4096 --global_reducer softmax --global_softmax_tau 0.02 --global_cycle_m 0.001 --global_edge_strength 0.95 --global_shade_strength 0.70 --global_dark_level 0.09 --global_unsharp_radius 1.0 --global_unsharp_amount 0.8 --global_clahe_clip 2.0 --global_clahe_grid 8 --log_results --skip_dense_log --dump_submaps --make_global_dem_tiled --log_path /data1/avilasha2/overmaps/vggt_outputs_insta360/Insta360_Clip2_77frames/poses_vanilla.txt
+[12:46:41] STEP 1 done. Submaps: 3
+[12:46:41] STEP 2: backend_watch — chip + DINOv2 embed
+[12:46:41]   backend_watch PID=1055395 | target: 3 submaps
+[12:49:11]   backend_watch: 1/3 embedded
+[12:51:57]   backend_watch: 2/3 embedded
+[12:54:57]   backend_watch: 3/3 embedded
+[12:54:57]   backend_watch: ALL done. Terminating.
+[12:55:02]   backend_watch terminated.
+[12:55:02] STEP 2 done. 3/3 embedded.
+[12:55:02] STEP 3: embed_global_tiles.py
+[12:55:02] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/embed_global_tiles.py --root /data1/avilasha2/overmaps/vggt_outputs_insta360/Insta360_Clip2_77frames --dino-model facebook/dinov2-base --mode resize --max-edge 1536 --overwrite
+[12:57:41] STEP 4: faiss_global_index.py
+[12:57:41] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/faiss_global_index.py --root /data1/avilasha2/overmaps/vggt_outputs_insta360/Insta360_Clip2_77frames --index hnsw --hnsw-M 32 --hnsw-efC 200
+[12:57:42] STEP 5a: build_tile_owners.py
+[12:57:42] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/build_tile_owners.py --root /data1/avilasha2/overmaps/vggt_outputs_insta360/Insta360_Clip2_77frames --overwrite
+[12:57:42] STEP 5b: vis_submap_ownership.py
+[12:57:42] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/vis_submap_ownership.py --root /data1/avilasha2/overmaps/vggt_outputs_insta360/Insta360_Clip2_77frames --alpha 0.35 --grid
+[12:57:43] STEP 5c: run_batch_submaps.sh
+[12:57:43] CMD: bash vggt_slam/tools/run_batch_submaps.sh /data1/avilasha2/overmaps/vggt_outputs_insta360/Insta360_Clip2_77frames 0 20 --dino facebook/dinov2-base --faiss hnsw --match-topk 20 --vote-topn 10 --vote-pad 0 --vpr-clusters 64 --vpr-topk 50 --max-edge 1024 --force --update-loop-votes --per-chip-topk 7 --topn-loop 7
+[13:00:10]   WARNING: exited 1
+[13:00:10] STEP 6: patch loop_closure.py + optimised trajectory
+[13:00:10] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 main.py --image_folder /data1/avilasha2/overmaps/vggt_outputs_insta360/Insta360_Clip2_77frames/perspective_images --vggt_ckpt /home/avilasha2/scratch/caches/torch/hub/checkpoints/model.pt --submap_size 32 --overlapping_window_size 1 --min_disparity 40 --use_sim3 --global_dem_out_dir /data1/avilasha2/overmaps/vggt_outputs_insta360/Insta360_Clip2_77frames --global_target_px 90000 --global_tile_px 4096 --global_reducer softmax --global_softmax_tau 0.02 --global_cycle_m 0.001 --global_edge_strength 0.95 --global_shade_strength 0.70 --global_dark_level 0.09 --global_unsharp_radius 1.0 --global_unsharp_amount 0.8 --global_clahe_clip 2.0 --global_clahe_grid 8 --log_results --skip_dense_log --use_sim3 --max_loops 7 --log_path /data1/avilasha2/overmaps/vggt_outputs_insta360/Insta360_Clip2_77frames/poses.txt
+[13:01:18]   [restore] loop_closure.py restored
+[13:01:18] STEP 6 done. poses.txt: 92 lines
+[13:01:18] CLIP COMPLETE: Insta360_Clip2_77frames
+[13:01:18] ============================================================
+✓ Insta360_Clip2_77frames
+
+All done.

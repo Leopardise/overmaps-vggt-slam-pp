@@ -1,0 +1,30 @@
+nohup: ignoring input
+
+UUID       Scene                               Time         Wx              Imgs_reg   Points3D   ReprErr    CamModel             ImgCount
+----------------------------------------------------------------------------------------------------------------------------------
+acc84284   Waterfront;Beach                    Morning      Sunny           299        141590     0.897      PINHOLE              299
+99bc9580   Urban;City Square                   Morning      Clear           299        183069     1.193      PINHOLE              299
+cfc399dc   Natural Landscape;Park              Afternoon    Sunny           299        161917     1.020      PINHOLE              226
+904fc0bf   Urban;City Park                     Morning      Sunny           300        188923     0.979      PINHOLE              300
+cf193a84   Urban;City Park                     Afternoon    Rainy           299        84575      1.292      PINHOLE              299
+077440b5   Natural Landscape;Forest            Morning      Sunny           299        104549     1.354      PINHOLE              299
+ee1cffaf   Urban;Modern Courtyard              Night        Clear           296        157667     1.305      PINHOLE              -1
+8e1e4107   Natural Landscape;Park              Afternoon    Sunny           299        86462      1.423      PINHOLE              299
+6dcff26a   Interior;Shopping Mall              Morning      Indoor          300        61062      1.460      PINHOLE              300
+6562f66d   Urban;City Square                   Afternoon    Partly Cloudy   300        167216     0.868      PINHOLE              300
+dd329eef   Urban;City Street                   Night        Clear           300        152269     1.468      PINHOLE              -1
+8e2217c3   Urban;City Street                   Afternoon    Clear           297        131950     1.168      PINHOLE              297
+1c4784a9   Urban;City Street                   Afternoon    Sunny           300        156638     1.216      PINHOLE              300
+0983df21   Natural Landscape;Forest            Afternoon    Sunny           114        30112      1.243      PINHOLE              114
+72217f1d   Waterfront;Beach                    Dusk         Partly Cloudy   299        84643      1.463      PINHOLE              299
+d176504f   Interior;Arcade                     Morning      Indoor          299        105895     1.293      PINHOLE              -1
+
+Results saved to /data1/avilasha2/overmaps/colmap_results.json
+
+========== SUMMARY ==========
+Scenes analyzed       : 16
+Mean reproj error     : 1.228 px  (std: 0.191)
+Mean registration     : 1.025      (std: 0.086)
+Best reproj error     : 0.868 px
+Worst reproj error    : 1.468 px
+Camera models seen    : {'PINHOLE'}

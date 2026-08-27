@@ -1,0 +1,54 @@
+QUICK RUN — OverMaps-1K evaluation with VGGT-SLAM++
+===================================================
+
+What this repo is
+-----------------
+We ran VGGT-SLAM++ on six OverMaps-1K scenes and three Insta360 X5 clips
+to see whether the company data is usable as a SLAM benchmark. The 3.9 TB
+1,000-scene dump is not here. You have:
+
+  data/OverMaps-eval6/   the six scenes we scored (RGB + COLMAP sparse)
+  data/insta360/         three 90° perspective crops + ARKit pose CSVs
+  results/poses/         already-computed vanilla / optimised trajectories
+  slam/                  VGGT-SLAM++ source (VGGT-1B is downloaded at setup)
+
+
+Look at numbers without a GPU
+-----------------------------
+  cat experiments/ate_all6_results.json
+  cat experiments/colmap_results.json
+  cat experiments/image_quality_results_full.json
+  cat experiments/trajectory_results.json
+  less REPORT.md
+
+
+Recompute ATE from the stored poses
+-----------------------------------
+Point compute_ate_all6.py at:
+
+  SPARSE_BASE = data/OverMaps-eval6/<scene>/sparse
+  OUT_BASE    = results/poses   (or keep vggt_outputs layout)
+
+Then:  python experiments/compute_ate_all6.py
+
+
+Re-run SLAM (needs CUDA, ~13 GB, VGGT-1B)
+-----------------------------------------
+  cd slam && ./setup.sh
+  python main.py \
+    --image_folder ../data/OverMaps-eval6/Waterfront_Beach_Morning_Sunny__acc84284/images \
+    --log_results --skip_dense_log \
+    --log_path ../results/poses/Waterfront_Beach_Morning_Sunny/poses.txt
+
+Portrait OverMaps frames are center-cropped to 518×518 by VGGT (top/bottom
+~44% FoV dropped). That warning is expected.
+
+Insta360: frames in data/insta360/*/images are already forward 90° crops.
+GT is poses_*.csv (phone ARKit), not COLMAP.
+
+
+What is not in git
+------------------
+  Dense DEM / point-map dumps from the original runs (~271 GB + ~120 GB)
+  The other 10 OverMaps audit scenes (images only; their metrics are in experiments/*.json)
+  Hugging Face OverTheReality/OverMaps_1k — remaining ~984 scenes (~3.9 TB)

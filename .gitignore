@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.idea/
+.vscode/
+
+# Foundation weights — download via slam/setup.sh, do not vendor
+*.pt
+*.pth
+*.onnx
+slam/vggt/
+slam/third_party/
+slam/checkpoints*/
+
+# Host-only artefacts
+index.html*
+*.insv
+data/OverMaps-1K-full/
+vggt_outputs/
+vggt_outputs_insta360/

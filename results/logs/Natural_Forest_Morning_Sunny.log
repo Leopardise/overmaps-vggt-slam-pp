@@ -1,0 +1,1583 @@
+[21:35:25] ============================================================
+[21:35:25] SEQUENCE : Natural_Forest_Morning_Sunny
+[21:35:25] UUID     : 077440b5-e71f-4a08-840a-d8b5737d111f
+[21:35:25] Root     : /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny
+[21:35:25] ============================================================
+[21:35:25] STEP 1: main.py — VGGT + DEM + submap dump
+[21:35:25] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 main.py --image_folder /data1/avilasha2/overmaps/OverMaps-1K/images/077440b5-e71f-4a08-840a-d8b5737d111f --submap_size 32 --overlapping_window_size 1 --min_disparity 40 --use_sim3 --dump_submaps --make_global_dem_tiled --global_dem_out_dir /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny --global_target_px 90000 --global_tile_px 4096 --global_reducer softmax --global_softmax_tau 0.02 --global_cycle_m 0.001 --global_edge_strength 0.95 --global_shade_strength 0.70 --global_dark_level 0.09 --global_unsharp_radius 1.0 --global_unsharp_amount 0.8 --global_clahe_clip 2.0 --global_clahe_grid 8 --log_results --skip_dense_log --log_path /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/poses_vanilla.txt
+Using device: cuda
+Starting viser server on port 8080
+╭──────────────── viser ────────────────╮
+│             ╷                         │
+│   HTTP      │ http://localhost:8080   │
+│   Websocket │ ws://localhost:8080     │
+│             ╵                         │
+╰───────────────────────────────────────╯
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/serizba_salad_main
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+Loaded model from /home/avilasha2/scratch/caches/torch/hub/checkpoints/dino_salad.ckpt Successfully!
+Starting viser server...
+Initializing VGGT backbone…
+No --vggt_ckpt provided; downloading VGGT-1B…
+Loading images from /data1/avilasha2/overmaps/OverMaps-1K/images/077440b5-e71f-4a08-840a-d8b5737d111f …
+Found 299 images
+  0%|          | 0/299 [00:00<?, ?it/s]  1%|          | 2/299 [00:00<00:18, 16.39it/s]  1%|▏         | 4/299 [00:00<00:18, 16.13it/s]  2%|▏         | 6/299 [00:00<00:19, 15.32it/s]  3%|▎         | 8/299 [00:00<00:18, 15.78it/s]  3%|▎         | 10/299 [00:00<00:18, 15.62it/s]  4%|▍         | 12/299 [00:00<00:17, 16.16it/s]  5%|▍         | 14/299 [00:00<00:19, 14.94it/s]  5%|▌         | 16/299 [00:01<00:18, 15.26it/s]  6%|▌         | 18/299 [00:01<00:18, 15.26it/s]  7%|▋         | 20/299 [00:01<00:18, 15.44it/s]  8%|▊         | 23/299 [00:01<00:16, 16.63it/s]  8%|▊         | 25/299 [00:01<00:16, 16.34it/s]  9%|▉         | 27/299 [00:01<00:16, 16.68it/s] 10%|▉         | 29/299 [00:01<00:16, 16.47it/s] 10%|█         | 31/299 [00:01<00:16, 16.10it/s] 11%|█         | 33/299 [00:02<00:16, 16.18it/s] 12%|█▏        | 35/299 [00:07<03:50,  1.15it/s] 12%|█▏        | 37/299 [00:07<02:46,  1.57it/s] 13%|█▎        | 39/299 [00:07<02:01,  2.14it/s] 14%|█▎        | 41/299 [00:08<01:29,  2.89it/s] 14%|█▍        | 43/299 [00:08<01:06,  3.82it/s] 15%|█▌        | 45/299 [00:08<00:51,  4.95it/s] 16%|█▌        | 47/299 [00:08<00:40,  6.25it/s] 16%|█▋        | 49/299 [00:08<00:32,  7.61it/s] 17%|█▋        | 51/299 [00:08<00:27,  8.95it/s] 18%|█▊        | 53/299 [00:08<00:24, 10.20it/s] 18%|█▊        | 55/299 [00:08<00:21, 11.41it/s] 19%|█▉        | 57/299 [00:09<00:19, 12.55it/s] 20%|█▉        | 59/299 [00:09<00:18, 13.26it/s] 20%|██        | 61/299 [00:09<00:16, 14.16it/s] 21%|██        | 63/299 [00:09<00:16, 14.40it/s] 22%|██▏       | 65/299 [00:09<00:15, 15.10it/s] 22%|██▏       | 67/299 [00:14<03:10,  1.22it/s] 23%|██▎       | 69/299 [00:14<02:16,  1.69it/s] 24%|██▎       | 71/299 [00:15<01:38,  2.32it/s] 24%|██▍       | 73/299 [00:15<01:12,  3.11it/s] 25%|██▌       | 75/299 [00:15<00:54,  4.09it/s] 26%|██▌       | 77/299 [00:15<00:42,  5.25it/s] 26%|██▋       | 79/299 [00:15<00:33,  6.59it/s] 27%|██▋       | 81/299 [00:15<00:27,  7.92it/s] 28%|██▊       | 83/299 [00:15<00:22,  9.43it/s] 28%|██▊       | 85/299 [00:15<00:19, 10.78it/s] 29%|██▉       | 87/299 [00:16<00:17, 11.83it/s] 30%|██▉       | 89/299 [00:16<00:16, 12.48it/s] 30%|███       | 91/299 [00:16<00:15, 13.36it/s] 31%|███       | 93/299 [00:16<00:14, 13.84it/s] 32%|███▏      | 95/299 [00:16<00:14, 14.43it/s] 32%|███▏      | 97/299 [00:16<00:13, 15.11it/s] 33%|███▎      | 99/299 [00:21<02:45,  1.21it/s] 34%|███▍      | 101/299 [00:21<01:58,  1.67it/s] 34%|███▍      | 103/299 [00:22<01:25,  2.28it/s] 35%|███▌      | 105/299 [00:22<01:03,  3.07it/s] 36%|███▌      | 107/299 [00:22<00:47,  4.03it/s] 36%|███▋      | 109/299 [00:22<00:36,  5.24it/s] 37%|███▋      | 111/299 [00:22<00:28,  6.55it/s] 38%|███▊      | 113/299 [00:22<00:23,  7.86it/s] 38%|███▊      | 115/299 [00:22<00:20,  9.18it/s] 39%|███▉      | 117/299 [00:23<00:17, 10.54it/s] 40%|████      | 120/299 [00:23<00:13, 12.79it/s] 41%|████      | 122/299 [00:23<00:13, 13.61it/s] 41%|████▏     | 124/299 [00:23<00:12, 14.30it/s] 42%|████▏     | 126/299 [00:23<00:11, 14.70it/s] 43%|████▎     | 128/299 [00:23<00:11, 15.13it/s] 43%|████▎     | 130/299 [00:23<00:11, 15.31it/s]Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+[frontend] dumped sm_00000: 1660342 pts | xyz_min=[-2.014 -1.031  0.148] xyz_max=[1.729 1.322 4.625] → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00000
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+scale factor 0.8804817763311695
+added between factor 0 1
+[frontend] dumped sm_00001: 1660361 pts | xyz_min=[-0.249 -0.864 -2.131] xyz_max=[2.059 0.454 0.305] → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00001
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+scale factor 0.4561062734229659
+added between factor 1 2
+[frontend] dumped sm_00002: 1660283 pts | xyz_min=[-0.039 -0.74  -0.566] xyz_max=[1.523 0.208 0.769] → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00002
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+ 44%|████▍     | 132/299 [00:28<02:15,  1.23it/s] 45%|████▍     | 134/299 [00:29<01:37,  1.69it/s] 45%|████▌     | 136/299 [00:29<01:10,  2.31it/s] 46%|████▌     | 138/299 [00:29<00:51,  3.11it/s] 47%|████▋     | 140/299 [00:29<00:38,  4.11it/s] 47%|████▋     | 142/299 [00:29<00:29,  5.31it/s] 48%|████▊     | 144/299 [00:29<00:23,  6.58it/s] 49%|████▉     | 146/299 [00:29<00:18,  8.10it/s] 49%|████▉     | 148/299 [00:29<00:15,  9.52it/s] 50%|█████     | 150/299 [00:30<00:13, 10.86it/s] 51%|█████     | 152/299 [00:30<00:12, 11.87it/s] 52%|█████▏    | 154/299 [00:30<00:11, 12.88it/s] 52%|█████▏    | 156/299 [00:30<00:10, 13.47it/s] 53%|█████▎    | 158/299 [00:30<00:10, 13.85it/s] 54%|█████▎    | 160/299 [00:30<00:09, 14.42it/s] 54%|█████▍    | 162/299 [00:30<00:09, 14.57it/s] 55%|█████▍    | 164/299 [00:36<01:53,  1.19it/s] 56%|█████▌    | 166/299 [00:36<01:21,  1.64it/s] 56%|█████▌    | 168/299 [00:36<00:58,  2.24it/s] 57%|█████▋    | 170/299 [00:36<00:42,  3.01it/s] 58%|█████▊    | 172/299 [00:36<00:32,  3.97it/s] 58%|█████▊    | 174/299 [00:36<00:24,  5.13it/s] 59%|█████▉    | 176/299 [00:36<00:19,  6.44it/s] 60%|█████▉    | 178/299 [00:37<00:15,  7.94it/s] 60%|██████    | 180/299 [00:37<00:12,  9.19it/s] 61%|██████    | 182/299 [00:37<00:10, 10.77it/s] 62%|██████▏   | 184/299 [00:37<00:09, 12.04it/s] 62%|██████▏   | 186/299 [00:37<00:08, 12.88it/s] 63%|██████▎   | 188/299 [00:37<00:08, 13.80it/s] 64%|██████▎   | 190/299 [00:37<00:07, 14.33it/s] 64%|██████▍   | 192/299 [00:37<00:07, 14.89it/s] 65%|██████▍   | 194/299 [00:38<00:06, 15.09it/s] 66%|██████▌   | 196/299 [00:43<01:25,  1.20it/s] 66%|██████▌   | 198/299 [00:43<01:00,  1.66it/s] 67%|██████▋   | 200/299 [00:43<00:43,  2.27it/s] 68%|██████▊   | 202/299 [00:43<00:31,  3.04it/s] 68%|██████▊   | 204/299 [00:43<00:23,  4.04it/s] 69%|██████▉   | 206/299 [00:43<00:17,  5.25it/s] 70%|██████▉   | 208/299 [00:44<00:13,  6.58it/s] 70%|███████   | 210/299 [00:44<00:11,  8.04it/s] 71%|███████   | 212/299 [00:44<00:09,  9.42it/s] 72%|███████▏  | 214/299 [00:44<00:07, 10.67it/s] 72%|███████▏  | 216/299 [00:44<00:07, 11.80it/s] 73%|███████▎  | 218/299 [00:44<00:06, 12.80it/s] 74%|███████▎  | 220/299 [00:44<00:05, 13.75it/s] 74%|███████▍  | 222/299 [00:44<00:05, 13.96it/s] 75%|███████▍  | 224/299 [00:45<00:05, 14.25it/s] 76%|███████▌  | 226/299 [00:45<00:05, 14.54it/s] 76%|███████▋  | 228/299 [00:50<00:58,  1.21it/s] 77%|███████▋  | 230/299 [00:50<00:41,  1.68it/s] 78%|███████▊  | 232/299 [00:50<00:29,  2.29it/s] 78%|███████▊  | 234/299 [00:50<00:20,  3.10it/s] 79%|███████▉  | 236/299 [00:50<00:15,  4.05it/s] 80%|███████▉  | 238/299 [00:51<00:11,  5.21it/s] 80%|████████  | 240/299 [00:51<00:09,  6.49it/s] 81%|████████  | 242/299 [00:51<00:07,  7.97it/s] 82%|████████▏ | 244/299 [00:51<00:05,  9.45it/s] 82%|████████▏ | 246/299 [00:51<00:04, 10.81it/s] 83%|████████▎ | 248/299 [00:51<00:04, 11.78it/s] 84%|████████▎ | 250/299 [00:51<00:03, 12.71it/s] 84%|████████▍ | 252/299 [00:51<00:03, 13.76it/s] 85%|████████▍ | 254/299 [00:52<00:03, 14.16it/s] 86%|████████▌ | 256/299 [00:52<00:02, 14.47it/s] 86%|████████▋ | 258/299 [00:52<00:02, 14.63it/s]Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+scale factor 0.3797055251702944
+added between factor 2 3
+[frontend] dumped sm_00003: 1660444 pts | xyz_min=[-1.651 -0.556  0.164] xyz_max=[-0.086  0.255  1.692] → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00003
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+scale factor 0.33807636844303723
+added between factor 3 4
+[frontend] dumped sm_00004: 1660448 pts | xyz_min=[-0.116 -0.511 -0.619] xyz_max=[1.219 0.239 0.449] → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00004
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+scale factor 0.3974073689877473
+added between factor 4 5
+[frontend] dumped sm_00005: 1659958 pts | xyz_min=[-1.173 -0.474 -0.498] xyz_max=[-0.092  0.221  0.417] → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00005
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+scale factor 0.23106189028199128
+added between factor 5 6
+[frontend] dumped sm_00006: 1660086 pts | xyz_min=[-0.168 -0.264 -0.477] xyz_max=[0.432 0.061 0.075] → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00006
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+ 87%|████████▋ | 260/299 [00:57<00:32,  1.20it/s] 88%|████████▊ | 262/299 [00:57<00:22,  1.65it/s] 88%|████████▊ | 264/299 [00:57<00:15,  2.26it/s] 89%|████████▉ | 266/299 [00:57<00:10,  3.04it/s] 90%|████████▉ | 268/299 [00:58<00:07,  3.99it/s] 90%|█████████ | 270/299 [00:58<00:05,  5.12it/s] 91%|█████████ | 272/299 [00:58<00:04,  6.49it/s] 92%|█████████▏| 274/299 [00:58<00:03,  7.67it/s] 92%|█████████▏| 276/299 [00:58<00:02,  9.06it/s] 93%|█████████▎| 278/299 [00:58<00:02, 10.45it/s] 94%|█████████▎| 280/299 [00:58<00:01, 11.61it/s] 94%|█████████▍| 282/299 [00:58<00:01, 12.57it/s] 95%|█████████▍| 284/299 [00:59<00:01, 13.48it/s] 96%|█████████▌| 286/299 [00:59<00:00, 14.22it/s] 96%|█████████▋| 288/299 [00:59<00:00, 14.89it/s] 97%|█████████▋| 290/299 [00:59<00:00, 14.97it/s] 98%|█████████▊| 292/299 [01:04<00:05,  1.21it/s] 98%|█████████▊| 294/299 [01:04<00:02,  1.67it/s] 99%|█████████▉| 296/299 [01:04<00:01,  2.28it/s]100%|█████████▉| 298/299 [01:05<00:00,  3.05it/s]100%|██████████| 299/299 [01:06<00:00,  4.50it/s]
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+scale factor 0.38876438030094296
+added between factor 6 7
+[frontend] dumped sm_00007: 1660021 pts | xyz_min=[-0.159 -0.404 -0.354] xyz_max=[1.224 0.11  0.476] → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00007
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+scale factor 0.30546169744914775
+added between factor 7 8
+[frontend] dumped sm_00008: 1660461 pts | xyz_min=[-0.134 -0.376 -0.85 ] xyz_max=[0.822 0.086 0.138] → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00008
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([9, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=9, C=2048
+scale factor 0.3686033387186142
+added between factor 8 9
+[frontend] dumped sm_00009: 453719 pts | xyz_min=[-0.145 -0.226  0.094] xyz_max=[0.666 0.279 0.738] → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00009
+Total submaps: 10
+Total loop closures: 0
+[global_dem_tiled] DONE → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny
+  tiles:        286  (22 × 13, 4096px each)
+  quicklook:    mosaic_quicklook.png  (4092×2418)
+  quicklook(c): mosaic_quicklook_color.png
+  index:        index.json
+[22:01:15] STEP 1 done. Submaps: 10
+[22:01:15] STEP 2: backend_watch — chip + DINOv2 embed
+[22:01:15]   backend_watch PID=902945 | target: 10 submaps
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[22:03:15]   backend_watch: 1/10 embedded
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+[22:04:31]   backend_watch: 2/10 embedded
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+[22:05:01]   backend_watch: 3/10 embedded
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+[22:05:31]   backend_watch: 4/10 embedded
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+[22:06:01]   backend_watch: 5/10 embedded
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+[22:06:31]   backend_watch: 6/10 embedded
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+[22:06:46]   backend_watch: 7/10 embedded
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+[22:07:16]   backend_watch: 8/10 embedded
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+[22:07:46]   backend_watch: 10/10 embedded
+[22:07:46]   backend_watch: ALL done. Terminating.
+[watch] chipped sm_00000: 80 chips, 80 tiles
+[watch] embedding (windowed) for sm_00000 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 80 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00000/chips
+[watch] chipped sm_00001: 44 chips, 44 tiles
+[watch] embedding (windowed) for sm_00001 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 44 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00001/chips
+[watch] chipped sm_00002: 17 chips, 17 tiles
+[watch] embedding (windowed) for sm_00002 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 17 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00002/chips
+[watch] chipped sm_00003: 20 chips, 20 tiles
+[watch] embedding (windowed) for sm_00003 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 20 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00003/chips
+[watch] chipped sm_00004: 14 chips, 14 tiles
+[watch] embedding (windowed) for sm_00004 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 14 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00004/chips
+[watch] chipped sm_00005: 10 chips, 10 tiles
+[watch] embedding (windowed) for sm_00005 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 10 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00005/chips
+[watch] chipped sm_00006: 6 chips, 6 tiles
+[watch] embedding (windowed) for sm_00006 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 6 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00006/chips
+[watch] chipped sm_00007: 11 chips, 11 tiles
+[watch] embedding (windowed) for sm_00007 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 11 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00007/chips
+[watch] chipped sm_00008: 11 chips, 11 tiles
+[watch] embedding (windowed) for sm_00008 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 11 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00008/chips
+[watch] chipped sm_00009: 8 chips, 8 tiles
+[watch] embedding (windowed) for sm_00009 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 8 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00009/chips
+[watch] using watchdog; watching /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps … (Ctrl+C to stop)
+[22:07:51]   backend_watch terminated.
+[22:07:51] STEP 2 done. 10/10 submaps embedded.
+[22:07:51] STEP 3: embed_global_tiles.py
+[22:07:51] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/embed_global_tiles.py --root /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny --dino-model facebook/dinov2-base --mode resize --max-edge 1536 --overwrite
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb] 75/286
+[emb] 100/286
+[emb] 125/286
+[emb] 150/286
+[emb] 175/286
+[emb] 250/286
+[emb] 275/286
+[emb] 286/286
+[emb] done: wrote 173 embeddings → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/global_embeddings
+[emb] valid.json created with 173 tile IDs
+[22:10:00] STEP 4: faiss_global_index.py
+[22:10:00] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/faiss_global_index.py --root /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny --index hnsw --hnsw-M 32 --hnsw-efC 200
+[faiss] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/global_embeddings/faiss_hnsw.index  (N=173, dim=768)
+[faiss] idmap: /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/global_embeddings/idmap.json
+[22:10:01] STEP 5a: build_tile_owners.py
+[22:10:01] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/build_tile_owners.py --root /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny --overwrite
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submap_index/tile_owners.json (tiles indexed: 142)
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submap_index/submap_tiles.json (submaps indexed: 10)
+[22:10:01] STEP 5b: vis_submap_ownership.py
+[22:10:01] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/vis_submap_ownership.py --root /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny --alpha 0.35 --grid
+[ok] colored mosaic:          /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/mosaic_submap_colors.png
+[ok] colored mosaic (grid):  /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/mosaic_submap_colors_with_grid.png
+[ok] legend:                  /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submap_color_legend.png
+[info] tiles with owners:     142 / 286
+[info] unique submaps:        10
+[22:10:01] STEP 5c: run_batch_submaps.sh
+[22:10:01] CMD: bash vggt_slam/tools/run_batch_submaps.sh /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny 0 20 --dino facebook/dinov2-base --faiss hnsw --match-topk 20 --vote-topn 10 --vote-pad 0 --vpr-clusters 64 --vpr-topk 50 --max-edge 1024 --force --update-loop-votes --per-chip-topk 7 --topn-loop 7
+
+==================== Submap sm_00000 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --submap "sm_00000"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00000: 80 DEM chips
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00000/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00000/covis_heatmap.png
+[debug] skipped_too_sparse=76, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00000"       --exclude-self --weighted
+[vote] best gallery submap: sm_00002  (out → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00000/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00000"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00000/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 4 entries. Top-5: [('sm_00002', 1.413), ('sm_00004', 0.792), ('sm_00007', 0.53), ('sm_00009', 0.188)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00000/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00000/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00000/region.json
+[info] region tiles: 20 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00000/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00000/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00000/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00000/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 80 queries, 20 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 20/20 imgs, patches so far=5120
+[kmeans] fitting MiniBatchKMeans on 5120 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00000/c_centers.npy
+[vlad] 25/80
+[vlad] 50/80
+[vlad] 75/80
+[vlad] 80/80
+[vlad] 20/20
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00000/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"         --submap "sm_00000"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00000/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/loop_votes.csv for sm_00000: top-7 = sm_00002(1998.000), sm_00004(1097.000), sm_00001(749.000), sm_00007(376.000), sm_00009(256.000), sm_00008(42.000), sm_00003(12.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00000"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00000/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00000/patch_matches_grid.png
+[ok] Submap sm_00000 done.
+
+==================== Submap sm_00001 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --submap "sm_00001"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00001: 44 DEM chips
+[match] 30/44
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00001/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00001/covis_heatmap.png
+[debug] skipped_too_sparse=42, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00001"       --exclude-self --weighted
+[vote] best gallery submap: sm_00003  (out → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00001/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00001"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00001/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 6 entries. Top-5: [('sm_00003', 0.846), ('sm_00000', 0.403), ('sm_00002', 0.336), ('sm_00005', 0.25), ('sm_00004', 0.228)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00001/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00001/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00001/region.json
+[info] region tiles: 110 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00001/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00001/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00001/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00001/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 44 queries, 110 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 50/110 imgs, patches so far=12800
+[kmeans] seed 100/110 imgs, patches so far=25600
+[kmeans] seed 110/110 imgs, patches so far=28160
+[kmeans] fitting MiniBatchKMeans on 28160 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00001/c_centers.npy
+[vlad] 25/44
+[vlad] 44/44
+[vlad] 25/110
+[vlad] 50/110
+[vlad] 75/110
+[vlad] 100/110
+[vlad] 110/110
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00001/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"         --submap "sm_00001"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00001/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/loop_votes.csv for sm_00001: top-7 = sm_00000(1049.000), sm_00002(126.000), sm_00003(117.000), sm_00004(75.000), sm_00007(41.000), sm_00005(38.000), sm_00009(19.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00001"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00001/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00001/patch_matches_grid.png
+[ok] Submap sm_00001 done.
+
+==================== Submap sm_00002 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --submap "sm_00002"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00002: 17 DEM chips
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00002/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00002/covis_heatmap.png
+[debug] skipped_too_sparse=14, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00002"       --exclude-self --weighted
+[vote] best gallery submap: sm_00003  (out → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00002/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00002"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00002/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 7 entries. Top-5: [('sm_00003', 2.969), ('sm_00000', 2.935), ('sm_00005', 2.416), ('sm_00001', 1.538), ('sm_00009', 1.196)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00002/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00002/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00002/region.json
+[info] region tiles: 136 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00002/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00002/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00002/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00002/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 17 queries, 136 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 50/136 imgs, patches so far=12800
+[kmeans] seed 100/136 imgs, patches so far=25600
+[kmeans] seed 136/136 imgs, patches so far=34816
+[kmeans] fitting MiniBatchKMeans on 34816 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00002/c_centers.npy
+[vlad] 17/17
+[vlad] 25/136
+[vlad] 50/136
+[vlad] 75/136
+[vlad] 100/136
+[vlad] 125/136
+[vlad] 136/136
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00002/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"         --submap "sm_00002"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00002/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/loop_votes.csv for sm_00002: top-7 = sm_00001(214.000), sm_00000(196.000), sm_00005(48.000), sm_00004(41.000), sm_00007(38.000), sm_00003(36.000), sm_00008(24.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00002"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00002/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00002/patch_matches_grid.png
+[ok] Submap sm_00002 done.
+
+==================== Submap sm_00003 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --submap "sm_00003"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00003: 20 DEM chips
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00003/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00003/covis_heatmap.png
+[debug] skipped_too_sparse=18, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00003"       --exclude-self --weighted
+[vote] best gallery submap: sm_00002  (out → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00003/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00003"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00003/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 9 entries. Top-5: [('sm_00002', 2.6), ('sm_00004', 2.079), ('sm_00007', 1.805), ('sm_00009', 1.498), ('sm_00001', 1.322)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00003/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00003/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00003/region.json
+[info] region tiles: 136 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00003/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00003/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00003/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00003/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 20 queries, 136 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 50/136 imgs, patches so far=12800
+[kmeans] seed 100/136 imgs, patches so far=25600
+[kmeans] seed 136/136 imgs, patches so far=34816
+[kmeans] fitting MiniBatchKMeans on 34816 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00003/c_centers.npy
+[vlad] 20/20
+[vlad] 25/136
+[vlad] 50/136
+[vlad] 75/136
+[vlad] 100/136
+[vlad] 125/136
+[vlad] 136/136
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00003/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"         --submap "sm_00003"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00003/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/loop_votes.csv for sm_00003: top-7 = sm_00000(379.000), sm_00001(128.000), sm_00005(58.000), sm_00009(28.000), sm_00008(22.000), sm_00006(15.000), sm_00002(10.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00003"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00003/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00003/patch_matches_grid.png
+[ok] Submap sm_00003 done.
+
+==================== Submap sm_00004 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --submap "sm_00004"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00004: 14 DEM chips
+[match] 10/14
+[match] 14/14
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00004/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00004/covis_heatmap.png
+[debug] skipped_too_sparse=10, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00004"       --exclude-self --weighted
+[vote] best gallery submap: sm_00003  (out → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00004/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00004"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00004/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 8 entries. Top-5: [('sm_00003', 3.754), ('sm_00000', 3.746), ('sm_00005', 3.112), ('sm_00001', 2.271), ('sm_00009', 1.55)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00004/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00004/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00004/region.json
+[info] region tiles: 142 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00004/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00004/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00004/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00004/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 14 queries, 142 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 50/142 imgs, patches so far=12800
+[kmeans] seed 100/142 imgs, patches so far=25600
+[kmeans] seed 142/142 imgs, patches so far=36352
+[kmeans] fitting MiniBatchKMeans on 36352 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00004/c_centers.npy
+[vlad] 14/14
+[vlad] 25/142
+[vlad] 50/142
+[vlad] 75/142
+[vlad] 100/142
+[vlad] 125/142
+[vlad] 142/142
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00004/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"         --submap "sm_00004"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00004/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/loop_votes.csv for sm_00004: top-7 = sm_00000(163.000), sm_00001(130.000), sm_00002(58.000), sm_00005(45.000), sm_00007(39.000), sm_00003(38.000), sm_00008(23.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00004"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00004/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00004/patch_matches_grid.png
+[ok] Submap sm_00004 done.
+
+==================== Submap sm_00005 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --submap "sm_00005"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00005: 10 DEM chips
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00005/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00005/covis_heatmap.png
+[debug] skipped_too_sparse=8, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00005"       --exclude-self --weighted
+[vote] best gallery submap: sm_00009  (out → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00005/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00005"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00005/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 9 entries. Top-5: [('sm_00009', 1.826), ('sm_00001', 1.767), ('sm_00002', 1.509), ('sm_00004', 1.509), ('sm_00007', 1.509)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00005/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00005/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00005/region.json
+[info] region tiles: 137 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00005/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00005/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00005/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00005/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 10 queries, 137 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 50/137 imgs, patches so far=12800
+[kmeans] seed 100/137 imgs, patches so far=25600
+[kmeans] seed 137/137 imgs, patches so far=35072
+[kmeans] fitting MiniBatchKMeans on 35072 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00005/c_centers.npy
+[vlad] 10/10
+[vlad] 25/137
+[vlad] 50/137
+[vlad] 75/137
+[vlad] 100/137
+[vlad] 125/137
+[vlad] 137/137
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00005/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"         --submap "sm_00005"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00005/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/loop_votes.csv for sm_00005: top-7 = sm_00000(147.000), sm_00001(94.000), sm_00003(64.000), sm_00002(42.000), sm_00004(31.000), sm_00007(23.000), sm_00008(22.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00005"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00005/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00005/patch_matches_grid.png
+[ok] Submap sm_00005 done.
+
+==================== Submap sm_00006 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --submap "sm_00006"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00006: 6 DEM chips
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00006/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00006/covis_heatmap.png
+[debug] skipped_too_sparse=4, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00006"       --exclude-self --weighted
+[vote] best gallery submap: sm_00005  (out → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00006/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00006"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00006/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 8 entries. Top-5: [('sm_00005', 3.509), ('sm_00003', 2.719), ('sm_00000', 1.841), ('sm_00009', 1.84), ('sm_00002', 0.926)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00006/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00006/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00006/region.json
+[info] region tiles: 142 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00006/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00006/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00006/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00006/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 6 queries, 142 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 50/142 imgs, patches so far=12800
+[kmeans] seed 100/142 imgs, patches so far=25600
+[kmeans] seed 142/142 imgs, patches so far=36352
+[kmeans] fitting MiniBatchKMeans on 36352 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00006/c_centers.npy
+[vlad] 6/6
+[vlad] 25/142
+[vlad] 50/142
+[vlad] 75/142
+[vlad] 100/142
+[vlad] 125/142
+[vlad] 142/142
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00006/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"         --submap "sm_00006"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00006/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/loop_votes.csv for sm_00006: top-7 = sm_00001(59.000), sm_00000(51.000), sm_00005(35.000), sm_00008(32.000), sm_00002(28.000), sm_00003(25.000), sm_00004(20.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00006"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00006/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00006/patch_matches_grid.png
+[ok] Submap sm_00006 done.
+
+==================== Submap sm_00007 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --submap "sm_00007"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00007: 11 DEM chips
+[match] 10/11
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00007/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00007/covis_heatmap.png
+[debug] skipped_too_sparse=8, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00007"       --exclude-self --weighted
+[vote] best gallery submap: sm_00000  (out → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00007/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00007"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00007/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 9 entries. Top-5: [('sm_00000', 3.197), ('sm_00003', 2.943), ('sm_00005', 2.509), ('sm_00001', 1.44), ('sm_00002', 1.42)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00007/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00007/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00007/region.json
+[info] region tiles: 142 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00007/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00007/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00007/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00007/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 11 queries, 142 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 50/142 imgs, patches so far=12800
+[kmeans] seed 100/142 imgs, patches so far=25600
+[kmeans] seed 142/142 imgs, patches so far=36352
+[kmeans] fitting MiniBatchKMeans on 36352 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00007/c_centers.npy
+[vlad] 11/11
+[vlad] 25/142
+[vlad] 50/142
+[vlad] 75/142
+[vlad] 100/142
+[vlad] 125/142
+[vlad] 142/142
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00007/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"         --submap "sm_00007"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00007/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/loop_votes.csv for sm_00007: top-7 = sm_00001(123.000), sm_00000(112.000), sm_00002(93.000), sm_00004(82.000), sm_00005(40.000), sm_00009(31.000), sm_00003(24.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00007"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00007/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00007/patch_matches_grid.png
+[ok] Submap sm_00007 done.
+
+==================== Submap sm_00008 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --submap "sm_00008"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00008: 11 DEM chips
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00008/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00008/covis_heatmap.png
+[debug] skipped_too_sparse=9, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00008"       --exclude-self --weighted
+[vote] best gallery submap: sm_00005  (out → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00008/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00008"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00008/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 9 entries. Top-5: [('sm_00005', 2.723), ('sm_00003', 2.427), ('sm_00000', 1.993), ('sm_00009', 1.672), ('sm_00001', 1.041)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00008/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00008/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00008/region.json
+[info] region tiles: 142 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00008/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00008/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00008/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00008/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 11 queries, 142 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 50/142 imgs, patches so far=12800
+[kmeans] seed 100/142 imgs, patches so far=25600
+[kmeans] seed 142/142 imgs, patches so far=36352
+[kmeans] fitting MiniBatchKMeans on 36352 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00008/c_centers.npy
+[vlad] 11/11
+[vlad] 25/142
+[vlad] 50/142
+[vlad] 75/142
+[vlad] 100/142
+[vlad] 125/142
+[vlad] 142/142
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00008/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"         --submap "sm_00008"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00008/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/loop_votes.csv for sm_00008: top-7 = sm_00000(120.000), sm_00001(116.000), sm_00002(51.000), sm_00003(47.000), sm_00004(35.000), sm_00007(27.000), sm_00005(22.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00008"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00008/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00008/patch_matches_grid.png
+[ok] Submap sm_00008 done.
+
+==================== Submap sm_00009 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --submap "sm_00009"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00009: 8 DEM chips
+[match] 8/8
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00009/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00009/covis_heatmap.png
+[debug] skipped_too_sparse=7, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00009"       --exclude-self --weighted
+[vote] best gallery submap: sm_00005  (out → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00009/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny" --submap "sm_00009"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00009/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 5 entries. Top-5: [('sm_00005', 2.566), ('sm_00003', 1.462), ('sm_00001', 0.593), ('sm_00006', 0.593), ('sm_00008', 0.3)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00009/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00009/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00009/region.json
+[info] region tiles: 66 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00009/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00009/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00009/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00009/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 8 queries, 66 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 50/66 imgs, patches so far=12800
+[kmeans] seed 66/66 imgs, patches so far=16896
+[kmeans] fitting MiniBatchKMeans on 16896 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00009/c_centers.npy
+[vlad] 8/8
+[vlad] 25/66
+[vlad] 50/66
+[vlad] 66/66
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00009/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"         --submap "sm_00009"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00009/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/loop_votes.csv for sm_00009: top-7 = sm_00001(151.000), sm_00003(66.000), sm_00005(37.000), sm_00002(22.000), sm_00004(22.000), sm_00000(12.000), sm_00007(10.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00009"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00009/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/anyloc_io/sm_00009/patch_matches_grid.png
+[ok] Submap sm_00009 done.
+
+==================== Submap sm_00010 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny"       --submap "sm_00010"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+chips dir missing: /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/submaps/sm_00010/chips (run backend_watch.py)
+[22:28:20]   WARNING: exited 1
+[22:28:20]   loop_votes.csv: 10 candidate pairs
+[22:28:20] STEP 6: patch loop_closure.py + optimised trajectory
+[22:28:20] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 main.py --image_folder /data1/avilasha2/overmaps/OverMaps-1K/images/077440b5-e71f-4a08-840a-d8b5737d111f --submap_size 32 --overlapping_window_size 1 --min_disparity 40 --use_sim3 --max_loops 7 --global_dem_out_dir /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny --global_target_px 90000 --global_tile_px 4096 --global_reducer softmax --global_softmax_tau 0.02 --global_cycle_m 0.001 --global_edge_strength 0.95 --global_shade_strength 0.70 --global_dark_level 0.09 --global_unsharp_radius 1.0 --global_unsharp_amount 0.8 --global_clahe_clip 2.0 --global_clahe_grid 8 --log_results --skip_dense_log --log_path /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/poses.txt
+Using device: cuda
+Starting viser server on port 8080
+╭──────────────── viser ────────────────╮
+│             ╷                         │
+│   HTTP      │ http://localhost:8080   │
+│   Websocket │ ws://localhost:8080     │
+│             ╵                         │
+╰───────────────────────────────────────╯
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/serizba_salad_main
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+Loaded model from /home/avilasha2/scratch/caches/torch/hub/checkpoints/dino_salad.ckpt Successfully!
+Starting viser server...
+Initializing VGGT backbone…
+No --vggt_ckpt provided; downloading VGGT-1B…
+Loading images from /data1/avilasha2/overmaps/OverMaps-1K/images/077440b5-e71f-4a08-840a-d8b5737d111f …
+Found 299 images
+  0%|          | 0/299 [00:00<?, ?it/s]  0%|          | 1/299 [00:00<00:32,  9.12it/s]  1%|          | 3/299 [00:00<00:23, 12.53it/s]  2%|▏         | 5/299 [00:00<00:21, 13.99it/s]  2%|▏         | 7/299 [00:00<00:19, 14.88it/s]  3%|▎         | 9/299 [00:00<00:19, 15.23it/s]  4%|▎         | 11/299 [00:00<00:18, 15.39it/s]  4%|▍         | 13/299 [00:00<00:18, 15.58it/s]  5%|▌         | 15/299 [00:01<00:18, 15.34it/s]  6%|▌         | 17/299 [00:01<00:17, 15.73it/s]  6%|▋         | 19/299 [00:01<00:17, 15.72it/s]  7%|▋         | 21/299 [00:01<00:17, 15.71it/s]  8%|▊         | 23/299 [00:01<00:16, 16.64it/s]  8%|▊         | 25/299 [00:01<00:16, 16.21it/s]  9%|▉         | 27/299 [00:01<00:16, 16.62it/s] 10%|▉         | 29/299 [00:01<00:17, 15.87it/s] 10%|█         | 31/299 [00:02<00:17, 15.67it/s] 11%|█         | 33/299 [00:02<00:17, 15.64it/s] 12%|█▏        | 35/299 [00:08<04:16,  1.03it/s] 12%|█▏        | 37/299 [00:08<03:03,  1.43it/s] 13%|█▎        | 39/299 [00:08<02:12,  1.96it/s] 14%|█▎        | 41/299 [00:08<01:37,  2.65it/s] 14%|█▍        | 43/299 [00:08<01:12,  3.53it/s] 15%|█▌        | 45/299 [00:08<00:54,  4.64it/s] 16%|█▌        | 47/299 [00:09<00:43,  5.84it/s] 16%|█▋        | 49/299 [00:09<00:35,  7.10it/s] 17%|█▋        | 51/299 [00:09<00:29,  8.43it/s] 18%|█▊        | 53/299 [00:09<00:25,  9.76it/s] 18%|█▊        | 55/299 [00:09<00:21, 11.10it/s] 19%|█▉        | 57/299 [00:09<00:19, 12.31it/s] 20%|█▉        | 59/299 [00:09<00:18, 12.87it/s] 20%|██        | 61/299 [00:10<00:17, 13.50it/s] 21%|██        | 63/299 [00:10<00:17, 13.57it/s] 22%|██▏       | 65/299 [00:10<00:16, 14.26it/s] 22%|██▏       | 67/299 [00:15<03:04,  1.26it/s] 23%|██▎       | 69/299 [00:15<02:12,  1.73it/s] 24%|██▎       | 71/299 [00:15<01:36,  2.36it/s] 24%|██▍       | 73/299 [00:15<01:11,  3.16it/s] 25%|██▌       | 75/299 [00:15<00:53,  4.16it/s] 26%|██▌       | 77/299 [00:15<00:41,  5.35it/s] 26%|██▋       | 79/299 [00:16<00:32,  6.77it/s] 27%|██▋       | 81/299 [00:16<00:26,  8.12it/s] 28%|██▊       | 83/299 [00:16<00:22,  9.56it/s] 28%|██▊       | 85/299 [00:16<00:19, 10.80it/s] 29%|██▉       | 87/299 [00:16<00:18, 11.61it/s] 30%|██▉       | 89/299 [00:16<00:16, 12.44it/s] 30%|███       | 91/299 [00:16<00:15, 13.05it/s] 31%|███       | 93/299 [00:16<00:15, 13.66it/s] 32%|███▏      | 95/299 [00:17<00:14, 14.28it/s] 32%|███▏      | 97/299 [00:17<00:14, 14.42it/s] 33%|███▎      | 99/299 [00:23<03:24,  1.02s/it] 34%|███▍      | 101/299 [00:23<02:25,  1.36it/s] 34%|███▍      | 103/299 [00:23<01:44,  1.87it/s] 35%|███▌      | 105/299 [00:24<01:16,  2.55it/s] 36%|███▌      | 107/299 [00:24<00:56,  3.40it/s] 36%|███▋      | 109/299 [00:24<00:42,  4.48it/s] 37%|███▋      | 111/299 [00:24<00:32,  5.74it/s] 38%|███▊      | 113/299 [00:24<00:26,  7.00it/s] 38%|███▊      | 115/299 [00:24<00:22,  8.29it/s] 39%|███▉      | 117/299 [00:24<00:18,  9.72it/s] 40%|████      | 120/299 [00:25<00:14, 12.02it/s] 41%|████      | 122/299 [00:25<00:13, 12.85it/s] 41%|████▏     | 124/299 [00:25<00:13, 13.33it/s] 42%|████▏     | 126/299 [00:25<00:12, 13.89it/s] 43%|████▎     | 128/299 [00:25<00:11, 14.49it/s] 43%|████▎     | 130/299 [00:25<00:11, 14.94it/s]Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+[loop_closure] rebuilt pairs (K=7): left-ids=83 total_pairs=125
+  left=2: rights=[0]
+  left=3: rights=[0, 1]
+  left=4: rights=[0, 1, 2]
+  left=5: rights=[0, 1, 2, 3]
+  left=6: rights=[0, 1, 2, 3, 4]
+[loop_closure] submap 0: ordered pairs → rights=[]
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+[loop_closure] submap 1: ordered pairs → rights=[]
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+scale factor 0.8804817763311695
+added between factor 0 1
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+[loop_closure] submap 2: ordered pairs → rights=[0]
+[loop_closure] submap 2: returned 7 matches (cap=7)
+  · q_sm=0002 f=001 → det_sm=0000 f=026 cos=0.8043
+  · q_sm=0002 f=030 → det_sm=0000 f=018 cos=0.7928
+  · q_sm=0002 f=016 → det_sm=0000 f=025 cos=0.7845
+  · q_sm=0002 f=003 → det_sm=0000 f=004 cos=0.7791
+  · q_sm=0002 f=028 → det_sm=0000 f=020 cos=0.7713
+  · q_sm=0002 f=006 → det_sm=0000 f=000 cos=0.7681
+  · q_sm=0002 f=027 → det_sm=0000 f=028 cos=0.7662
+detected_loops [LoopMatch(similarity_score=0.8042934536933899, query_submap_id=2, query_submap_frame=1, detected_submap_id=0, detected_submap_frame=26), LoopMatch(similarity_score=0.7927849888801575, query_submap_id=2, query_submap_frame=30, detected_submap_id=0, detected_submap_frame=18), LoopMatch(similarity_score=0.7845410704612732, query_submap_id=2, query_submap_frame=16, detected_submap_id=0, detected_submap_frame=25), LoopMatch(similarity_score=0.7790663838386536, query_submap_id=2, query_submap_frame=3, detected_submap_id=0, detected_submap_frame=4), LoopMatch(similarity_score=0.7713077068328857, query_submap_id=2, query_submap_frame=28, detected_submap_id=0, detected_submap_frame=20), LoopMatch(similarity_score=0.768120527267456, query_submap_id=2, query_submap_frame=6, detected_submap_id=0, detected_submap_frame=0), LoopMatch(similarity_score=0.7662118077278137, query_submap_id=2, query_submap_frame=27, detected_submap_id=0, detected_submap_frame=28)]
+21
+CameraHead trunk_fn: B=1, S=40, C=2048
+scale factor 0.4443926664617124
+added between factor 1 2
+added loop closure factor 0 2
+added loop closure factor 0 2
+added loop closure factor 0 2
+added loop closure factor 0 2
+added loop closure factor 0 2
+added loop closure factor 0 2
+added loop closure factor 0 2
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+ 44%|████▍     | 132/299 [00:32<02:51,  1.03s/it] 45%|████▍     | 134/299 [00:32<02:02,  1.34it/s] 45%|████▌     | 136/299 [00:32<01:28,  1.85it/s] 46%|████▌     | 138/299 [00:32<01:03,  2.52it/s] 47%|████▋     | 140/299 [00:32<00:47,  3.35it/s] 47%|████▋     | 142/299 [00:32<00:35,  4.37it/s] 48%|████▊     | 144/299 [00:33<00:28,  5.51it/s] 49%|████▉     | 146/299 [00:33<00:21,  6.98it/s] 49%|████▉     | 148/299 [00:33<00:18,  8.18it/s] 50%|█████     | 150/299 [00:33<00:15,  9.46it/s] 51%|█████     | 152/299 [00:33<00:13, 10.63it/s] 52%|█████▏    | 154/299 [00:33<00:12, 11.69it/s] 52%|█████▏    | 156/299 [00:33<00:11, 12.58it/s] 53%|█████▎    | 158/299 [00:34<00:10, 13.12it/s] 54%|█████▎    | 160/299 [00:34<00:10, 13.56it/s] 54%|█████▍    | 162/299 [00:34<00:09, 14.15it/s] 55%|█████▍    | 164/299 [00:41<02:23,  1.06s/it] 56%|█████▌    | 166/299 [00:41<01:41,  1.31it/s] 56%|█████▌    | 168/299 [00:41<01:13,  1.79it/s] 57%|█████▋    | 170/299 [00:41<00:52,  2.44it/s] 58%|█████▊    | 172/299 [00:41<00:38,  3.26it/s] 58%|█████▊    | 174/299 [00:41<00:29,  4.27it/s] 59%|█████▉    | 176/299 [00:41<00:22,  5.49it/s] 60%|█████▉    | 178/299 [00:41<00:17,  6.88it/s] 60%|██████    | 180/299 [00:42<00:14,  8.37it/s] 61%|██████    | 182/299 [00:42<00:11,  9.76it/s] 62%|██████▏   | 184/299 [00:42<00:10, 11.03it/s] 62%|██████▏   | 186/299 [00:42<00:09, 12.10it/s] 63%|██████▎   | 188/299 [00:42<00:08, 12.69it/s] 64%|██████▎   | 190/299 [00:42<00:08, 13.40it/s] 64%|██████▍   | 192/299 [00:42<00:07, 14.09it/s] 65%|██████▍   | 194/299 [00:42<00:07, 13.95it/s]Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+[loop_closure] submap 3: ordered pairs → rights=[0, 1]
+[loop_closure] submap 3: returned 7 matches (cap=7)
+  · q_sm=0003 f=027 → det_sm=0000 f=008 cos=0.8537
+  · q_sm=0003 f=007 → det_sm=0001 f=003 cos=0.8449
+  · q_sm=0003 f=022 → det_sm=0001 f=011 cos=0.8397
+  · q_sm=0003 f=015 → det_sm=0001 f=002 cos=0.8397
+  · q_sm=0003 f=032 → det_sm=0000 f=015 cos=0.8371
+  · q_sm=0003 f=030 → det_sm=0000 f=011 cos=0.8273
+  · q_sm=0003 f=021 → det_sm=0001 f=028 cos=0.8227
+detected_loops [LoopMatch(similarity_score=0.8537098169326782, query_submap_id=3, query_submap_frame=27, detected_submap_id=0, detected_submap_frame=8), LoopMatch(similarity_score=0.8448969721794128, query_submap_id=3, query_submap_frame=7, detected_submap_id=1, detected_submap_frame=3), LoopMatch(similarity_score=0.8397331833839417, query_submap_id=3, query_submap_frame=22, detected_submap_id=1, detected_submap_frame=11), LoopMatch(similarity_score=0.839680552482605, query_submap_id=3, query_submap_frame=15, detected_submap_id=1, detected_submap_frame=2), LoopMatch(similarity_score=0.8371419310569763, query_submap_id=3, query_submap_frame=32, detected_submap_id=0, detected_submap_frame=15), LoopMatch(similarity_score=0.827299952507019, query_submap_id=3, query_submap_frame=30, detected_submap_id=0, detected_submap_frame=11), LoopMatch(similarity_score=0.8226597905158997, query_submap_id=3, query_submap_frame=21, detected_submap_id=1, detected_submap_frame=28)]
+21
+CameraHead trunk_fn: B=1, S=40, C=2048
+scale factor 0.3781523876947976
+added between factor 2 3
+added loop closure factor 0 3
+added loop closure factor 1 3
+added loop closure factor 1 3
+added loop closure factor 1 3
+added loop closure factor 0 3
+added loop closure factor 0 3
+added loop closure factor 1 3
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+[loop_closure] submap 4: ordered pairs → rights=[0, 1, 2]
+[loop_closure] submap 4: returned 7 matches (cap=7)
+  · q_sm=0004 f=000 → det_sm=0000 f=015 cos=0.8371
+  · q_sm=0004 f=020 → det_sm=0000 f=002 cos=0.8340
+  · q_sm=0004 f=011 → det_sm=0001 f=021 cos=0.8294
+  · q_sm=0004 f=018 → det_sm=0002 f=006 cos=0.8255
+  · q_sm=0004 f=017 → det_sm=0002 f=012 cos=0.8242
+  · q_sm=0004 f=004 → det_sm=0001 f=004 cos=0.8163
+  · q_sm=0004 f=017 → det_sm=0001 f=000 cos=0.8144
+detected_loops [LoopMatch(similarity_score=0.8371419310569763, query_submap_id=4, query_submap_frame=0, detected_submap_id=0, detected_submap_frame=15), LoopMatch(similarity_score=0.8339976072311401, query_submap_id=4, query_submap_frame=20, detected_submap_id=0, detected_submap_frame=2), LoopMatch(similarity_score=0.8293752074241638, query_submap_id=4, query_submap_frame=11, detected_submap_id=1, detected_submap_frame=21), LoopMatch(similarity_score=0.8255487680435181, query_submap_id=4, query_submap_frame=18, detected_submap_id=2, detected_submap_frame=6), LoopMatch(similarity_score=0.8241757154464722, query_submap_id=4, query_submap_frame=17, detected_submap_id=2, detected_submap_frame=12), LoopMatch(similarity_score=0.8162594437599182, query_submap_id=4, query_submap_frame=4, detected_submap_id=1, detected_submap_frame=4), LoopMatch(similarity_score=0.8143881559371948, query_submap_id=4, query_submap_frame=17, detected_submap_id=1, detected_submap_frame=0)]
+21
+CameraHead trunk_fn: B=1, S=40, C=2048
+scale factor 0.35785423056508603
+added between factor 3 4
+added loop closure factor 0 4
+added loop closure factor 0 4
+added loop closure factor 1 4
+added loop closure factor 2 4
+added loop closure factor 2 4
+added loop closure factor 1 4
+added loop closure factor 1 4
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+ 66%|██████▌   | 196/299 [00:50<01:54,  1.11s/it] 66%|██████▌   | 198/299 [00:50<01:20,  1.25it/s] 67%|██████▋   | 200/299 [00:50<00:57,  1.73it/s] 68%|██████▊   | 202/299 [00:50<00:41,  2.35it/s] 68%|██████▊   | 204/299 [00:50<00:30,  3.14it/s] 69%|██████▉   | 206/299 [00:50<00:22,  4.16it/s] 70%|██████▉   | 208/299 [00:50<00:16,  5.36it/s] 70%|███████   | 210/299 [00:50<00:13,  6.71it/s] 71%|███████   | 212/299 [00:51<00:10,  8.01it/s] 72%|███████▏  | 214/299 [00:51<00:09,  9.42it/s] 72%|███████▏  | 216/299 [00:51<00:07, 10.75it/s] 73%|███████▎  | 218/299 [00:51<00:06, 11.66it/s] 74%|███████▎  | 220/299 [00:51<00:06, 12.57it/s] 74%|███████▍  | 222/299 [00:51<00:05, 13.16it/s] 75%|███████▍  | 224/299 [00:51<00:05, 13.41it/s] 76%|███████▌  | 226/299 [00:52<00:05, 13.95it/s] 76%|███████▋  | 228/299 [00:59<01:22,  1.16s/it] 77%|███████▋  | 230/299 [00:59<00:57,  1.21it/s] 78%|███████▊  | 232/299 [00:59<00:40,  1.67it/s] 78%|███████▊  | 234/299 [00:59<00:28,  2.27it/s] 79%|███████▉  | 236/299 [00:59<00:20,  3.05it/s] 80%|███████▉  | 238/299 [01:00<00:15,  3.99it/s] 80%|████████  | 240/299 [01:00<00:11,  5.09it/s] 81%|████████  | 242/299 [01:00<00:08,  6.44it/s] 82%|████████▏ | 244/299 [01:00<00:07,  7.77it/s] 82%|████████▏ | 246/299 [01:00<00:05,  9.22it/s] 83%|████████▎ | 248/299 [01:00<00:04, 10.40it/s] 84%|████████▎ | 250/299 [01:00<00:04, 11.53it/s] 84%|████████▍ | 252/299 [01:00<00:03, 12.52it/s] 85%|████████▍ | 254/299 [01:01<00:03, 13.09it/s] 86%|████████▌ | 256/299 [01:01<00:03, 13.70it/s] 86%|████████▋ | 258/299 [01:01<00:02, 13.94it/s]Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+[loop_closure] submap 5: ordered pairs → rights=[0, 1, 2, 3]
+[loop_closure] submap 5: returned 7 matches (cap=7)
+  · q_sm=0005 f=021 → det_sm=0002 f=029 cos=0.8547
+  · q_sm=0005 f=026 → det_sm=0001 f=001 cos=0.8381
+  · q_sm=0005 f=016 → det_sm=0000 f=022 cos=0.8341
+  · q_sm=0005 f=019 → det_sm=0002 f=038 cos=0.8286
+  · q_sm=0005 f=019 → det_sm=0000 f=000 cos=0.8286
+  · q_sm=0005 f=010 → det_sm=0001 f=004 cos=0.8201
+  · q_sm=0005 f=028 → det_sm=0003 f=031 cos=0.8186
+detected_loops [LoopMatch(similarity_score=0.8547389507293701, query_submap_id=5, query_submap_frame=21, detected_submap_id=2, detected_submap_frame=29), LoopMatch(similarity_score=0.838070273399353, query_submap_id=5, query_submap_frame=26, detected_submap_id=1, detected_submap_frame=1), LoopMatch(similarity_score=0.8341435790061951, query_submap_id=5, query_submap_frame=16, detected_submap_id=0, detected_submap_frame=22), LoopMatch(similarity_score=0.8286397457122803, query_submap_id=5, query_submap_frame=19, detected_submap_id=2, detected_submap_frame=38), LoopMatch(similarity_score=0.8286397457122803, query_submap_id=5, query_submap_frame=19, detected_submap_id=0, detected_submap_frame=0), LoopMatch(similarity_score=0.8200722932815552, query_submap_id=5, query_submap_frame=10, detected_submap_id=1, detected_submap_frame=4), LoopMatch(similarity_score=0.8186244964599609, query_submap_id=5, query_submap_frame=28, detected_submap_id=3, detected_submap_frame=31)]
+21
+CameraHead trunk_fn: B=1, S=40, C=2048
+scale factor 0.4197125068413907
+added between factor 4 5
+added loop closure factor 2 5
+added loop closure factor 1 5
+added loop closure factor 0 5
+added loop closure factor 2 5
+added loop closure factor 0 5
+added loop closure factor 1 5
+added loop closure factor 3 5
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+[loop_closure] submap 6: ordered pairs → rights=[0, 1, 2, 3, 4]
+[loop_closure] submap 6: returned 7 matches (cap=7)
+  · q_sm=0006 f=011 → det_sm=0004 f=002 cos=0.9109
+  · q_sm=0006 f=023 → det_sm=0004 f=008 cos=0.9085
+  · q_sm=0006 f=014 → det_sm=0004 f=031 cos=0.8531
+  · q_sm=0006 f=002 → det_sm=0002 f=039 cos=0.8351
+  · q_sm=0006 f=002 → det_sm=0000 f=028 cos=0.8351
+  · q_sm=0006 f=031 → det_sm=0001 f=030 cos=0.8321
+  · q_sm=0006 f=021 → det_sm=0003 f=008 cos=0.8313
+detected_loops [LoopMatch(similarity_score=0.9108502268791199, query_submap_id=6, query_submap_frame=11, detected_submap_id=4, detected_submap_frame=2), LoopMatch(similarity_score=0.9084702730178833, query_submap_id=6, query_submap_frame=23, detected_submap_id=4, detected_submap_frame=8), LoopMatch(similarity_score=0.8531019687652588, query_submap_id=6, query_submap_frame=14, detected_submap_id=4, detected_submap_frame=31), LoopMatch(similarity_score=0.8350878953933716, query_submap_id=6, query_submap_frame=2, detected_submap_id=2, detected_submap_frame=39), LoopMatch(similarity_score=0.8350878953933716, query_submap_id=6, query_submap_frame=2, detected_submap_id=0, detected_submap_frame=28), LoopMatch(similarity_score=0.8320894837379456, query_submap_id=6, query_submap_frame=31, detected_submap_id=1, detected_submap_frame=30), LoopMatch(similarity_score=0.8313136696815491, query_submap_id=6, query_submap_frame=21, detected_submap_id=3, detected_submap_frame=8)]
+21
+CameraHead trunk_fn: B=1, S=40, C=2048
+scale factor 0.2434791653944214
+added between factor 5 6
+added loop closure factor 4 6
+added loop closure factor 4 6
+added loop closure factor 4 6
+added loop closure factor 2 6
+added loop closure factor 0 6
+added loop closure factor 1 6
+added loop closure factor 3 6
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+ 87%|████████▋ | 260/299 [01:08<00:46,  1.19s/it] 88%|████████▊ | 262/299 [01:09<00:31,  1.17it/s] 88%|████████▊ | 264/299 [01:09<00:21,  1.61it/s] 89%|████████▉ | 266/299 [01:09<00:14,  2.21it/s] 90%|████████▉ | 268/299 [01:09<00:10,  2.98it/s] 90%|█████████ | 270/299 [01:09<00:07,  3.94it/s] 91%|█████████ | 272/299 [01:09<00:05,  5.04it/s] 92%|█████████▏| 274/299 [01:09<00:03,  6.34it/s] 92%|█████████▏| 276/299 [01:10<00:03,  7.65it/s] 93%|█████████▎| 278/299 [01:10<00:02,  9.07it/s] 94%|█████████▎| 280/299 [01:10<00:01, 10.23it/s] 94%|█████████▍| 282/299 [01:10<00:01, 11.40it/s] 95%|█████████▍| 284/299 [01:10<00:01, 12.67it/s] 96%|█████████▌| 286/299 [01:10<00:00, 13.57it/s] 96%|█████████▋| 288/299 [01:10<00:00, 14.61it/s] 97%|█████████▋| 290/299 [01:10<00:00, 15.14it/s] 98%|█████████▊| 292/299 [01:18<00:08,  1.18s/it] 98%|█████████▊| 294/299 [01:18<00:04,  1.18it/s] 99%|█████████▉| 296/299 [01:18<00:01,  1.64it/s]100%|█████████▉| 298/299 [01:18<00:00,  2.23it/s]100%|██████████| 299/299 [01:22<00:00,  3.63it/s]
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+[loop_closure] submap 7: ordered pairs → rights=[0, 1, 2, 3, 4, 5]
+[loop_closure] submap 7: returned 7 matches (cap=7)
+  · q_sm=0007 f=029 → det_sm=0005 f=025 cos=0.8870
+  · q_sm=0007 f=001 → det_sm=0004 f=009 cos=0.8752
+  · q_sm=0007 f=016 → det_sm=0005 f=011 cos=0.8696
+  · q_sm=0007 f=016 → det_sm=0004 f=005 cos=0.8553
+  · q_sm=0007 f=012 → det_sm=0000 f=010 cos=0.8477
+  · q_sm=0007 f=020 → det_sm=0003 f=031 cos=0.8440
+  · q_sm=0007 f=020 → det_sm=0005 f=039 cos=0.8440
+detected_loops [LoopMatch(similarity_score=0.8870235085487366, query_submap_id=7, query_submap_frame=29, detected_submap_id=5, detected_submap_frame=25), LoopMatch(similarity_score=0.8752013444900513, query_submap_id=7, query_submap_frame=1, detected_submap_id=4, detected_submap_frame=9), LoopMatch(similarity_score=0.8696266412734985, query_submap_id=7, query_submap_frame=16, detected_submap_id=5, detected_submap_frame=11), LoopMatch(similarity_score=0.8552592992782593, query_submap_id=7, query_submap_frame=16, detected_submap_id=4, detected_submap_frame=5), LoopMatch(similarity_score=0.8477127552032471, query_submap_id=7, query_submap_frame=12, detected_submap_id=0, detected_submap_frame=10), LoopMatch(similarity_score=0.8440120220184326, query_submap_id=7, query_submap_frame=20, detected_submap_id=3, detected_submap_frame=31), LoopMatch(similarity_score=0.8440120220184326, query_submap_id=7, query_submap_frame=20, detected_submap_id=5, detected_submap_frame=39)]
+21
+CameraHead trunk_fn: B=1, S=40, C=2048
+scale factor 0.40130699456750585
+added between factor 6 7
+added loop closure factor 5 7
+added loop closure factor 4 7
+added loop closure factor 5 7
+added loop closure factor 4 7
+added loop closure factor 0 7
+added loop closure factor 3 7
+added loop closure factor 5 7
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+[loop_closure] submap 8: ordered pairs → rights=[0, 1, 2, 3, 4, 6]
+[loop_closure] submap 8: returned 7 matches (cap=7)
+  · q_sm=0008 f=020 → det_sm=0002 f=030 cos=0.8922
+  · q_sm=0008 f=025 → det_sm=0003 f=012 cos=0.8721
+  · q_sm=0008 f=005 → det_sm=0002 f=030 cos=0.8665
+  · q_sm=0008 f=002 → det_sm=0006 f=028 cos=0.8616
+  · q_sm=0008 f=003 → det_sm=0002 f=021 cos=0.8610
+  · q_sm=0008 f=027 → det_sm=0006 f=010 cos=0.8530
+  · q_sm=0008 f=005 → det_sm=0006 f=033 cos=0.8403
+detected_loops [LoopMatch(similarity_score=0.8922028541564941, query_submap_id=8, query_submap_frame=20, detected_submap_id=2, detected_submap_frame=30), LoopMatch(similarity_score=0.8721073865890503, query_submap_id=8, query_submap_frame=25, detected_submap_id=3, detected_submap_frame=12), LoopMatch(similarity_score=0.866456925868988, query_submap_id=8, query_submap_frame=5, detected_submap_id=2, detected_submap_frame=30), LoopMatch(similarity_score=0.8615531921386719, query_submap_id=8, query_submap_frame=2, detected_submap_id=6, detected_submap_frame=28), LoopMatch(similarity_score=0.8609950542449951, query_submap_id=8, query_submap_frame=3, detected_submap_id=2, detected_submap_frame=21), LoopMatch(similarity_score=0.8529676198959351, query_submap_id=8, query_submap_frame=27, detected_submap_id=6, detected_submap_frame=10), LoopMatch(similarity_score=0.8402907848358154, query_submap_id=8, query_submap_frame=5, detected_submap_id=6, detected_submap_frame=33)]
+21
+CameraHead trunk_fn: B=1, S=40, C=2048
+scale factor 0.32492211592276665
+added between factor 7 8
+added loop closure factor 2 8
+added loop closure factor 3 8
+added loop closure factor 2 8
+added loop closure factor 6 8
+added loop closure factor 2 8
+added loop closure factor 6 8
+added loop closure factor 6 8
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([9, 3, 518, 518])
+[loop_closure] submap 9: ordered pairs → rights=[0, 1, 2, 3, 4, 5, 6]
+[loop_closure] submap 9: returned 7 matches (cap=7)
+  · q_sm=0009 f=004 → det_sm=0005 f=028 cos=0.8690
+  · q_sm=0009 f=003 → det_sm=0006 f=013 cos=0.8570
+  · q_sm=0009 f=003 → det_sm=0005 f=032 cos=0.8163
+  · q_sm=0009 f=006 → det_sm=0002 f=015 cos=0.8133
+  · q_sm=0009 f=000 → det_sm=0004 f=028 cos=0.8080
+  · q_sm=0009 f=004 → det_sm=0002 f=018 cos=0.8047
+  · q_sm=0009 f=003 → det_sm=0002 f=017 cos=0.8023
+detected_loops [LoopMatch(similarity_score=0.869011402130127, query_submap_id=9, query_submap_frame=4, detected_submap_id=5, detected_submap_frame=28), LoopMatch(similarity_score=0.8570041060447693, query_submap_id=9, query_submap_frame=3, detected_submap_id=6, detected_submap_frame=13), LoopMatch(similarity_score=0.8162823915481567, query_submap_id=9, query_submap_frame=3, detected_submap_id=5, detected_submap_frame=32), LoopMatch(similarity_score=0.8133086562156677, query_submap_id=9, query_submap_frame=6, detected_submap_id=2, detected_submap_frame=15), LoopMatch(similarity_score=0.8079555034637451, query_submap_id=9, query_submap_frame=0, detected_submap_id=4, detected_submap_frame=28), LoopMatch(similarity_score=0.8047495484352112, query_submap_id=9, query_submap_frame=4, detected_submap_id=2, detected_submap_frame=18), LoopMatch(similarity_score=0.8022556900978088, query_submap_id=9, query_submap_frame=3, detected_submap_id=2, detected_submap_frame=17)]
+21
+CameraHead trunk_fn: B=1, S=16, C=2048
+scale factor 0.45335528969066496
+added between factor 8 9
+added loop closure factor 5 9
+added loop closure factor 6 9
+added loop closure factor 5 9
+added loop closure factor 2 9
+added loop closure factor 4 9
+added loop closure factor 2 9
+added loop closure factor 2 9
+Total submaps: 10
+Total loop closures: 56
+[22:30:29] STEP 6 done. poses.txt: 306 lines -> /data1/avilasha2/overmaps/vggt_outputs/Natural_Forest_Morning_Sunny/poses.txt
+[22:30:29] SEQUENCE COMPLETE: Natural_Forest_Morning_Sunny
+[22:30:29] ============================================================

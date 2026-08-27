@@ -1,0 +1,74 @@
+[
+  {
+    "scene": "Waterfront;Beach",
+    "condition": "Morning, Sunny",
+    "traj_len": 149.5,
+    "frames": 299,
+    "vanilla_ate": 6.4163,
+    "optimised_ate": 6.3365,
+    "relative_pct": 4.24,
+    "lc_improvement": 1.24,
+    "max_error": 14.4245,
+    "rmse": 6.9313
+  },
+  {
+    "scene": "Urban;City Park",
+    "condition": "Afternoon, Rainy",
+    "traj_len": 50.63,
+    "frames": 299,
+    "vanilla_ate": 2.2376,
+    "optimised_ate": 2.2871,
+    "relative_pct": 4.52,
+    "lc_improvement": -2.21,
+    "max_error": 4.8485,
+    "rmse": 2.495
+  },
+  {
+    "scene": "Natural;Forest",
+    "condition": "Morning, Sunny",
+    "traj_len": 74.04,
+    "frames": 299,
+    "vanilla_ate": 3.1029,
+    "optimised_ate": 3.1161,
+    "relative_pct": 4.21,
+    "lc_improvement": -0.43,
+    "max_error": 6.3632,
+    "rmse": 3.6234
+  },
+  {
+    "scene": "Urban;City Street",
+    "condition": "Afternoon, Clear",
+    "traj_len": 118.49,
+    "frames": 297,
+    "vanilla_ate": 7.0054,
+    "optimised_ate": 7.0404,
+    "relative_pct": 5.94,
+    "lc_improvement": -0.5,
+    "max_error": 11.7682,
+    "rmse": 7.5413
+  },
+  {
+    "scene": "Urban;City Street (Night)",
+    "condition": "Night, Clear",
+    "traj_len": 62.53,
+    "frames": 300,
+    "vanilla_ate": 2.6614,
+    "optimised_ate": 2.6865,
+    "relative_pct": 4.3,
+    "lc_improvement": -0.94,
+    "max_error": 4.8693,
+    "rmse": 2.8648
+  },
+  {
+    "scene": "Interior;Shopping Mall",
+    "condition": "Morning, Indoor",
+    "traj_len": 51.93,
+    "frames": 300,
+    "vanilla_ate": 2.6768,
+    "optimised_ate": 2.6761,
+    "relative_pct": 5.15,
+    "lc_improvement": 0.03,
+    "max_error": 3.3583,
+    "rmse": 2.6905
+  }
+]

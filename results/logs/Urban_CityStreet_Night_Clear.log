@@ -1,0 +1,54 @@
+[20:17:27] ============================================================
+[20:17:27] SEQUENCE : Urban_CityStreet_Night_Clear
+[20:17:27] UUID     : dd329eef-e796-4915-8ce0-dc8e3e844840
+[20:17:27] Root     : /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear
+[20:17:27] ============================================================
+[20:17:27] STEP 1: main.py — VGGT + DEM + submap dump
+[20:17:27] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 main.py --image_folder /data1/avilasha2/overmaps/OverMaps-1K/images/dd329eef-e796-4915-8ce0-dc8e3e844840 --submap_size 32 --overlapping_window_size 1 --min_disparity 40 --use_sim3 --dump_submaps --make_global_dem_tiled --global_dem_out_dir /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear --global_target_px 90000 --global_tile_px 4096 --global_reducer softmax --global_softmax_tau 0.02 --global_cycle_m 0.001 --global_edge_strength 0.95 --global_shade_strength 0.70 --global_dark_level 0.09 --global_unsharp_radius 1.0 --global_unsharp_amount 0.8 --global_clahe_clip 2.0 --global_clahe_grid 8 --log_results --skip_dense_log --log_path /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/poses_vanilla.txt
+Using device: cuda
+Starting viser server on port 8080
+╭──────────────── viser ────────────────╮
+│             ╷                         │
+│   HTTP      │ http://localhost:8080   │
+│   Websocket │ ws://localhost:8080     │
+│             ╵                         │
+╰───────────────────────────────────────╯
+Traceback (most recent call last):
+  File "/data1/avilasha2/code/VGGT-SLAM/main.py", line 992, in <module>
+    main()
+  File "/data1/avilasha2/code/VGGT-SLAM/main.py", line 815, in main
+    solver = Solver(
+  File "/data1/avilasha2/code/VGGT-SLAM/vggt_slam/solver.py", line 660, in __init__
+    self.image_retrieval = ImageRetrieval()
+  File "/data1/avilasha2/code/VGGT-SLAM/vggt_slam/loop_closure.py", line 80, in __init__
+    self.model = load_model(ckpt_pth).to(device).eval()
+  File "/data1/avilasha2/VGGT-SLAM/third_party/salad/salad/eval.py", line 72, in load_model
+    model = VPRModel(
+  File "/data1/avilasha2/VGGT-SLAM/third_party/salad/salad/vpr_model.py", line 77, in __init__
+    self.backbone = helper.get_backbone(backbone_arch, backbone_config)
+  File "/data1/avilasha2/VGGT-SLAM/third_party/salad/salad/models_salad/helper.py", line 23, in get_backbone
+    return backbones.DINOv2(model_name=backbone_arch, **backbone_config)
+  File "/data1/avilasha2/VGGT-SLAM/third_party/salad/salad/models_salad/backbones/dinov2.py", line 32, in __init__
+    self.model = torch.hub.load('facebookresearch/dinov2', model_name)
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/torch/hub.py", line 565, in load
+    repo_or_dir = _get_cache_or_reload(repo_or_dir, force_reload, trust_repo, "load",
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/torch/hub.py", line 206, in _get_cache_or_reload
+    repo_owner, repo_name, ref = _parse_repo_info(github)
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/torch/hub.py", line 150, in _parse_repo_info
+    with urlopen(f"https://github.com/{repo_owner}/{repo_name}/tree/main/"):
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/urllib/request.py", line 525, in open
+    response = meth(req, response)
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/urllib/request.py", line 634, in http_response
+    response = self.parent.error(
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/urllib/request.py", line 563, in error
+    return self._call_chain(*args)
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/urllib/request.py", line 643, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 504: Gateway Time-out
+[20:17:32]   WARNING: exited 1
+[20:17:32] STEP 1 done. Submaps: 0
+[20:17:32] ERROR: No submaps. Skipping.

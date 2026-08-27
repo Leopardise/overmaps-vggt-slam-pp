@@ -1,0 +1,162 @@
+[
+  {
+    "uid": "acc84284-a9c7-4c6d-b8d7-429d1878b36d",
+    "scene_type": "Waterfront;Beach",
+    "time": "Morning",
+    "weather": "Sunny",
+    "trajectory_length_m": 149.5,
+    "scene_radius_m": 11.5,
+    "avg_baseline_cm": 50.17,
+    "num_frames": 299
+  },
+  {
+    "uid": "99bc9580-1fce-4024-b474-1dc0b32699d6",
+    "scene_type": "Urban;City Square",
+    "time": "Morning",
+    "weather": "Clear",
+    "trajectory_length_m": 105.93,
+    "scene_radius_m": 6.0,
+    "avg_baseline_cm": 35.55,
+    "num_frames": 299
+  },
+  {
+    "uid": "cfc399dc-702b-41dc-b94c-53d54998aa70",
+    "scene_type": "Natural Landscape;Park",
+    "time": "Afternoon",
+    "weather": "Sunny",
+    "trajectory_length_m": 127.94,
+    "scene_radius_m": 9.38,
+    "avg_baseline_cm": 42.93,
+    "num_frames": 299
+  },
+  {
+    "uid": "904fc0bf-f026-493c-86ca-a78bfd613810",
+    "scene_type": "Urban;City Park",
+    "time": "Morning",
+    "weather": "Sunny",
+    "trajectory_length_m": 90.21,
+    "scene_radius_m": 7.47,
+    "avg_baseline_cm": 30.17,
+    "num_frames": 300
+  },
+  {
+    "uid": "cf193a84-cb9a-4416-8e35-c5bb726d18ab",
+    "scene_type": "Urban;City Park",
+    "time": "Afternoon",
+    "weather": "Rainy",
+    "trajectory_length_m": 50.63,
+    "scene_radius_m": 4.77,
+    "avg_baseline_cm": 16.99,
+    "num_frames": 299
+  },
+  {
+    "uid": "077440b5-e71f-4a08-840a-d8b5737d111f",
+    "scene_type": "Natural Landscape;Forest",
+    "time": "Morning",
+    "weather": "Sunny",
+    "trajectory_length_m": 74.04,
+    "scene_radius_m": 6.3,
+    "avg_baseline_cm": 24.85,
+    "num_frames": 299
+  },
+  {
+    "uid": "ee1cffaf-99ab-4035-bd41-9cdcc24d8de3",
+    "scene_type": "Urban;Modern Courtyard",
+    "time": "Night",
+    "weather": "Clear",
+    "trajectory_length_m": 142.88,
+    "scene_radius_m": 8.27,
+    "avg_baseline_cm": 48.43,
+    "num_frames": 296
+  },
+  {
+    "uid": "8e1e4107-6d3d-4e64-b8b1-cb9eedbaf553",
+    "scene_type": "Natural Landscape;Park",
+    "time": "Afternoon",
+    "weather": "Sunny",
+    "trajectory_length_m": 65.49,
+    "scene_radius_m": 5.12,
+    "avg_baseline_cm": 21.98,
+    "num_frames": 299
+  },
+  {
+    "uid": "6dcff26a-ed5d-46c0-b78c-c8af7124dc03",
+    "scene_type": "Interior;Shopping Mall",
+    "time": "Morning",
+    "weather": "Indoor",
+    "trajectory_length_m": 51.93,
+    "scene_radius_m": 3.3,
+    "avg_baseline_cm": 17.37,
+    "num_frames": 300
+  },
+  {
+    "uid": "6562f66d-a92f-4c7d-87c1-c86fb1d240e0",
+    "scene_type": "Urban;City Square",
+    "time": "Afternoon",
+    "weather": "Partly Cloudy",
+    "trajectory_length_m": 196.29,
+    "scene_radius_m": 16.49,
+    "avg_baseline_cm": 65.65,
+    "num_frames": 300
+  },
+  {
+    "uid": "dd329eef-e796-4915-8ce0-dc8e3e844840",
+    "scene_type": "Urban;City Street",
+    "time": "Night",
+    "weather": "Clear",
+    "trajectory_length_m": 62.53,
+    "scene_radius_m": 4.75,
+    "avg_baseline_cm": 20.91,
+    "num_frames": 300
+  },
+  {
+    "uid": "8e2217c3-bb88-45ad-ba3f-7c9d7b3232f5",
+    "scene_type": "Urban;City Street",
+    "time": "Afternoon",
+    "weather": "Clear",
+    "trajectory_length_m": 118.49,
+    "scene_radius_m": 11.63,
+    "avg_baseline_cm": 40.03,
+    "num_frames": 297
+  },
+  {
+    "uid": "1c4784a9-8e27-4422-b250-cbdf0409315c",
+    "scene_type": "Urban;City Street",
+    "time": "Afternoon",
+    "weather": "Sunny",
+    "trajectory_length_m": 111.77,
+    "scene_radius_m": 7.31,
+    "avg_baseline_cm": 37.38,
+    "num_frames": 300
+  },
+  {
+    "uid": "0983df21-c5ac-4451-bd3b-e09cdaaa9897",
+    "scene_type": "Natural Landscape;Forest",
+    "time": "Afternoon",
+    "weather": "Sunny",
+    "trajectory_length_m": 37.14,
+    "scene_radius_m": 4.38,
+    "avg_baseline_cm": 32.86,
+    "num_frames": 114
+  },
+  {
+    "uid": "72217f1d-a678-4154-98eb-29be4547b236",
+    "scene_type": "Waterfront;Beach",
+    "time": "Dusk",
+    "weather": "Partly Cloudy",
+    "trajectory_length_m": 60.52,
+    "scene_radius_m": 3.8,
+    "avg_baseline_cm": 20.31,
+    "num_frames": 299
+  },
+  {
+    "uid": "d176504f-2fdc-4c05-9030-b02216ca1b08",
+    "scene_type": "Interior;Arcade",
+    "time": "Morning",
+    "weather": "Indoor",
+    "trajectory_length_m": 102.51,
+    "scene_radius_m": 6.25,
+    "avg_baseline_cm": 34.4,
+    "num_frames": 299
+  }
+]

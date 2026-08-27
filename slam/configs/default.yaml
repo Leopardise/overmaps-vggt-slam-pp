@@ -1,0 +1,30 @@
+# VGGT-SLAM++ paper defaults (arXiv:2604.06830, Sec. 3 and App. A3)
+
+frontend:
+  submap_size: 32              # w
+  overlapping_window_size: 1   # one transition frame M_prior; w_loops = 0
+  min_disparity: 40.0          # τ_disparity (Lucas–Kanade)
+  conf_threshold: 25.0
+  use_sim3: true
+  max_loops: 0                 # loop closure is the DEM/AnyLoc back-end
+  depth_min: 0.2               # App. A2 floater filter (meters)
+  depth_max: 30.0              # sky / far-field cutoff used in practice (~30 m)
+
+dem:
+  target_px_long: 90000        # default raster resolution
+  tile_px: 4096
+  reducer: softmax
+  softmax_tau: 0.02
+  edge_strength: 0.95
+  kernel_px: 1.2
+  chip_meters: 2.0             # 2 m × 2 m chips / tiles
+
+embedding:
+  model: facebook/dinov2-base  # 768-D; Eq. (1)
+  window_radius: 4             # 9×9 neighbourhood around each global tile
+  sigma_tiles: 2.0             # Gaussian positional weight w_j
+
+retrieval:
+  index: hnsw                  # FAISS-HNSW, Eq. (2)–(3)
+  top_k: 10                    # covisible neighbours
+  vpr: anyloc                  # AnyLoc on DEM chips vs covisible tiles

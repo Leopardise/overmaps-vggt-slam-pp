@@ -1,0 +1,226 @@
+[
+  {
+    "uid": "acc84284-a9c7-4c6d-b8d7-429d1878b36d",
+    "scene_type": "Waterfront;Beach",
+    "time": "Morning",
+    "weather": "Sunny",
+    "total_frames": 299,
+    "mean_sharpness": 1511.2,
+    "min_sharpness": 936.0,
+    "mean_brightness": 148.6,
+    "mean_contrast": 41.3,
+    "resolutions": [
+      "1071x1905"
+    ]
+  },
+  {
+    "uid": "99bc9580-1fce-4024-b474-1dc0b32699d6",
+    "scene_type": "Urban;City Square",
+    "time": "Morning",
+    "weather": "Clear",
+    "total_frames": 299,
+    "mean_sharpness": 598.0,
+    "min_sharpness": 186.7,
+    "mean_brightness": 123.3,
+    "mean_contrast": 69.8,
+    "resolutions": [
+      "1059x1884"
+    ]
+  },
+  {
+    "uid": "cfc399dc-702b-41dc-b94c-53d54998aa70",
+    "scene_type": "Natural Landscape;Park",
+    "time": "Afternoon",
+    "weather": "Sunny",
+    "total_frames": 226,
+    "mean_sharpness": 2059.4,
+    "min_sharpness": 999.4,
+    "mean_brightness": 117.8,
+    "mean_contrast": 57.9,
+    "resolutions": [
+      "1059x1883"
+    ]
+  },
+  {
+    "uid": "904fc0bf-f026-493c-86ca-a78bfd613810",
+    "scene_type": "Urban;City Park",
+    "time": "Morning",
+    "weather": "Sunny",
+    "total_frames": 300,
+    "mean_sharpness": 1466.8,
+    "min_sharpness": 872.2,
+    "mean_brightness": 128.2,
+    "mean_contrast": 73.4,
+    "resolutions": [
+      "1060x1886"
+    ]
+  },
+  {
+    "uid": "cf193a84-cb9a-4416-8e35-c5bb726d18ab",
+    "scene_type": "Urban;City Park",
+    "time": "Afternoon",
+    "weather": "Rainy",
+    "total_frames": 299,
+    "mean_sharpness": 396.8,
+    "min_sharpness": 102.5,
+    "mean_brightness": 146.3,
+    "mean_contrast": 70.3,
+    "resolutions": [
+      "1410x1881"
+    ]
+  },
+  {
+    "uid": "077440b5-e71f-4a08-840a-d8b5737d111f",
+    "scene_type": "Natural Landscape;Forest",
+    "time": "Morning",
+    "weather": "Sunny",
+    "total_frames": 299,
+    "mean_sharpness": 1908.1,
+    "min_sharpness": 242.7,
+    "mean_brightness": 111.4,
+    "mean_contrast": 68.8,
+    "resolutions": [
+      "1070x1904"
+    ]
+  },
+  {
+    "uid": "ee1cffaf-99ab-4035-bd41-9cdcc24d8de3",
+    "scene_type": "Urban;Modern Courtyard",
+    "time": "Night",
+    "weather": "Clear",
+    "total_frames": 296,
+    "mean_sharpness": 129.6,
+    "min_sharpness": 52.4,
+    "mean_brightness": 96.5,
+    "mean_contrast": 64.5,
+    "resolutions": [
+      "1046x1861"
+    ]
+  },
+  {
+    "uid": "8e1e4107-6d3d-4e64-b8b1-cb9eedbaf553",
+    "scene_type": "Natural Landscape;Park",
+    "time": "Afternoon",
+    "weather": "Sunny",
+    "total_frames": 299,
+    "mean_sharpness": 612.8,
+    "min_sharpness": 314.9,
+    "mean_brightness": 112.5,
+    "mean_contrast": 70.0,
+    "resolutions": [
+      "1058x1883"
+    ]
+  },
+  {
+    "uid": "6dcff26a-ed5d-46c0-b78c-c8af7124dc03",
+    "scene_type": "Interior;Shopping Mall",
+    "time": "Morning",
+    "weather": "Indoor",
+    "total_frames": 300,
+    "mean_sharpness": 61.0,
+    "min_sharpness": 15.8,
+    "mean_brightness": 157.7,
+    "mean_contrast": 55.0,
+    "resolutions": [
+      "1425x1900"
+    ]
+  },
+  {
+    "uid": "6562f66d-a92f-4c7d-87c1-c86fb1d240e0",
+    "scene_type": "Urban;City Square",
+    "time": "Afternoon",
+    "weather": "Partly Cloudy",
+    "total_frames": 300,
+    "mean_sharpness": 355.3,
+    "min_sharpness": 140.5,
+    "mean_brightness": 115.2,
+    "mean_contrast": 64.3,
+    "resolutions": [
+      "1062x1416"
+    ]
+  },
+  {
+    "uid": "dd329eef-e796-4915-8ce0-dc8e3e844840",
+    "scene_type": "Urban;City Street",
+    "time": "Night",
+    "weather": "Clear",
+    "total_frames": 300,
+    "mean_sharpness": 185.4,
+    "min_sharpness": 61.4,
+    "mean_brightness": 92.6,
+    "mean_contrast": 64.7,
+    "resolutions": [
+      "1036x1842"
+    ]
+  },
+  {
+    "uid": "8e2217c3-bb88-45ad-ba3f-7c9d7b3232f5",
+    "scene_type": "Urban;City Street",
+    "time": "Afternoon",
+    "weather": "Clear",
+    "total_frames": 297,
+    "mean_sharpness": 469.4,
+    "min_sharpness": 116.5,
+    "mean_brightness": 133.2,
+    "mean_contrast": 69.0,
+    "resolutions": [
+      "1055x1876"
+    ]
+  },
+  {
+    "uid": "1c4784a9-8e27-4422-b250-cbdf0409315c",
+    "scene_type": "Urban;City Street",
+    "time": "Afternoon",
+    "weather": "Sunny",
+    "total_frames": 300,
+    "mean_sharpness": 662.7,
+    "min_sharpness": 116.4,
+    "mean_brightness": 126.3,
+    "mean_contrast": 72.1,
+    "resolutions": [
+      "1045x1860"
+    ]
+  },
+  {
+    "uid": "0983df21-c5ac-4451-bd3b-e09cdaaa9897",
+    "scene_type": "Natural Landscape;Forest",
+    "time": "Afternoon",
+    "weather": "Sunny",
+    "total_frames": 114,
+    "mean_sharpness": 572.4,
+    "min_sharpness": 286.7,
+    "mean_brightness": 115.0,
+    "mean_contrast": 66.7,
+    "resolutions": [
+      "1071x1905"
+    ]
+  },
+  {
+    "uid": "72217f1d-a678-4154-98eb-29be4547b236",
+    "scene_type": "Waterfront;Beach",
+    "time": "Dusk",
+    "weather": "Partly Cloudy",
+    "total_frames": 299,
+    "mean_sharpness": 28.9,
+    "min_sharpness": 7.2,
+    "mean_brightness": 115.8,
+    "mean_contrast": 60.6,
+    "resolutions": [
+      "1419x1893"
+    ]
+  },
+  {
+    "uid": "d176504f-2fdc-4c05-9030-b02216ca1b08",
+    "scene_type": "Interior;Arcade",
+    "time": "Morning",
+    "weather": "Indoor",
+    "total_frames": 299,
+    "mean_sharpness": 274.7,
+    "min_sharpness": 35.1,
+    "mean_brightness": 96.8,
+    "mean_contrast": 70.6,
+    "resolutions": [
+      "1047x1863"
+    ]
+  }
+]

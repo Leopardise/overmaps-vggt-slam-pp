@@ -1,0 +1,21 @@
+nohup: ignoring input
+
+UUID       Scene                               Time         TrajLen(m)   SceneRadius(m)   AvgBaseline(cm)
+--------------------------------------------------------------------------------------------------------------
+acc84284   [ERROR] 'builtin_function_or_method' object has no attribute 'rotation'
+99bc9580   [ERROR] 'builtin_function_or_method' object has no attribute 'rotation'
+cfc399dc   [ERROR] 'builtin_function_or_method' object has no attribute 'rotation'
+904fc0bf   [ERROR] 'builtin_function_or_method' object has no attribute 'rotation'
+cf193a84   [ERROR] 'builtin_function_or_method' object has no attribute 'rotation'
+077440b5   [ERROR] 'builtin_function_or_method' object has no attribute 'rotation'
+ee1cffaf   [ERROR] 'builtin_function_or_method' object has no attribute 'rotation'
+8e1e4107   [ERROR] 'builtin_function_or_method' object has no attribute 'rotation'
+6dcff26a   [ERROR] 'builtin_function_or_method' object has no attribute 'rotation'
+6562f66d   [ERROR] 'builtin_function_or_method' object has no attribute 'rotation'
+dd329eef   [ERROR] 'builtin_function_or_method' object has no attribute 'rotation'
+8e2217c3   [ERROR] 'builtin_function_or_method' object has no attribute 'rotation'
+1c4784a9   [ERROR] 'builtin_function_or_method' object has no attribute 'rotation'
+0983df21   [ERROR] 'builtin_function_or_method' object has no attribute 'rotation'
+72217f1d   [ERROR] 'builtin_function_or_method' object has no attribute 'rotation'
+d176504f   [ERROR] 'builtin_function_or_method' object has no attribute 'rotation'
+Done. Saved to trajectory_results.json

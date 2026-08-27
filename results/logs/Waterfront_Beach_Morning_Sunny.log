@@ -1,0 +1,104 @@
+[16:05:23] ============================================================
+[16:05:23] SEQUENCE: Waterfront_Beach_Morning_Sunny
+[16:05:23] UUID    : acc84284-a9c7-4c6d-b8d7-429d1878b36d
+[16:05:23] Images  : /data1/avilasha2/overmaps/OverMaps-1K/images/acc84284-a9c7-4c6d-b8d7-429d1878b36d
+[16:05:23] Output  : /data1/avilasha2/overmaps/vggt_outputs/Waterfront_Beach_Morning_Sunny
+[16:05:23] ============================================================
+[16:05:23] STEP 1: main.py first pass (DEM + submaps + sim3)...
+[16:05:23] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 main.py --image_folder /data1/avilasha2/overmaps/OverMaps-1K/images/acc84284-a9c7-4c6d-b8d7-429d1878b36d --submap_size 32 --overlapping_window_size 1 --min_disparity 40 --use_sim3 --dump_submaps --make_global_dem_tiled --global_dem_out_dir /data1/avilasha2/overmaps/vggt_outputs/Waterfront_Beach_Morning_Sunny --global_target_px 90000 --global_tile_px 4096 --global_reducer softmax --global_softmax_tau 0.02 --global_cycle_m 0.001 --global_edge_strength 0.95 --global_shade_strength 0.70 --global_dark_level 0.09 --global_unsharp_radius 1.0 --global_unsharp_amount 0.8 --global_clahe_clip 2.0 --global_clahe_grid 8 --log_results
+Traceback (most recent call last):
+  File "/data1/avilasha2/code/VGGT-SLAM/main.py", line 629, in <module>
+    from vggt_slam.solver import Solver
+  File "/data1/avilasha2/code/VGGT-SLAM/vggt_slam/solver.py", line 557, in <module>
+    from vggt_slam.loop_closure import ImageRetrieval
+  File "/data1/avilasha2/code/VGGT-SLAM/vggt_slam/loop_closure.py", line 16, in <module>
+    from salad.eval import load_model  # SALAD (DINOv2 backbone)
+  File "/data1/avilasha2/VGGT-SLAM/third_party/salad/salad/eval.py", line 8, in <module>
+    from salad.vpr_model import VPRModel
+  File "/data1/avilasha2/VGGT-SLAM/third_party/salad/salad/vpr_model.py", line 1, in <module>
+    import pytorch_lightning as pl
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/pytorch_lightning/__init__.py", line 27, in <module>
+    from pytorch_lightning.callbacks import Callback  # noqa: E402
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/pytorch_lightning/callbacks/__init__.py", line 14, in <module>
+    from pytorch_lightning.callbacks.batch_size_finder import BatchSizeFinder
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/pytorch_lightning/callbacks/batch_size_finder.py", line 26, in <module>
+    from pytorch_lightning.callbacks.callback import Callback
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/pytorch_lightning/callbacks/callback.py", line 22, in <module>
+    from pytorch_lightning.utilities.types import STEP_OUTPUT
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/pytorch_lightning/utilities/types.py", line 36, in <module>
+    from torchmetrics import Metric
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/torchmetrics/__init__.py", line 37, in <module>
+    from torchmetrics import functional  # noqa: E402
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/torchmetrics/functional/__init__.py", line 129, in <module>
+    from torchmetrics.functional.text._deprecated import _bleu_score as bleu_score
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/torchmetrics/functional/text/__init__.py", line 50, in <module>
+    from torchmetrics.functional.text.bert import bert_score
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/torchmetrics/functional/text/bert.py", line 56, in <module>
+    from transformers import AutoModel, AutoTokenizer
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/transformers/__init__.py", line 26, in <module>
+    from . import dependency_versions_check
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/transformers/dependency_versions_check.py", line 57, in <module>
+    require_version_core(deps[pkg])
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/transformers/utils/versions.py", line 117, in require_version_core
+    return require_version(requirement, hint)
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/transformers/utils/versions.py", line 111, in require_version
+    _compare_versions(op, got_ver, want_ver, requirement, pkg, hint)
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/transformers/utils/versions.py", line 44, in _compare_versions
+    raise ImportError(
+ImportError: huggingface-hub>=0.26.0,<1.0 is required for a normal functioning of this module, but found huggingface-hub==1.18.0.
+Try: `pip install transformers -U` or `pip install -e '.[dev]'` if you're working with git main
+[16:05:54] WARNING: command exited with code 1
+[16:05:54] STEP 1 done. Submaps found: 0
+[16:05:54] ERROR: No submaps found. Skipping sequence.
+[16:22:12] ============================================================
+[16:22:12] SEQUENCE : Waterfront_Beach_Morning_Sunny
+[16:22:12] UUID     : acc84284-a9c7-4c6d-b8d7-429d1878b36d
+[16:22:12] Images   : /data1/avilasha2/overmaps/OverMaps-1K/images/acc84284-a9c7-4c6d-b8d7-429d1878b36d
+[16:22:12] Root     : /data1/avilasha2/overmaps/vggt_outputs/Waterfront_Beach_Morning_Sunny
+[16:22:12] ============================================================
+[16:22:12] STEP 1: main.py — DEM + submap dump + vanilla sim3 SLAM
+[16:22:12] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 main.py --image_folder /data1/avilasha2/overmaps/OverMaps-1K/images/acc84284-a9c7-4c6d-b8d7-429d1878b36d --submap_size 32 --overlapping_window_size 1 --min_disparity 40 --use_sim3 --dump_submaps --make_global_dem_tiled --global_dem_out_dir /data1/avilasha2/overmaps/vggt_outputs/Waterfront_Beach_Morning_Sunny --global_target_px 90000 --global_tile_px 4096 --global_reducer softmax --global_softmax_tau 0.02 --global_cycle_m 0.001 --global_edge_strength 0.95 --global_shade_strength 0.70 --global_dark_level 0.09 --global_unsharp_radius 1.0 --global_unsharp_amount 0.8 --global_clahe_clip 2.0 --global_clahe_grid 8 --log_results --skip_dense_log --log_path /data1/avilasha2/overmaps/vggt_outputs/Waterfront_Beach_Morning_Sunny/poses_vanilla.txt
+Traceback (most recent call last):
+  File "/data1/avilasha2/code/VGGT-SLAM/main.py", line 629, in <module>
+    from vggt_slam.solver import Solver
+  File "/data1/avilasha2/code/VGGT-SLAM/vggt_slam/solver.py", line 557, in <module>
+    from vggt_slam.loop_closure import ImageRetrieval
+  File "/data1/avilasha2/code/VGGT-SLAM/vggt_slam/loop_closure.py", line 16, in <module>
+    from salad.eval import load_model  # SALAD (DINOv2 backbone)
+  File "/data1/avilasha2/VGGT-SLAM/third_party/salad/salad/eval.py", line 8, in <module>
+    from salad.vpr_model import VPRModel
+  File "/data1/avilasha2/VGGT-SLAM/third_party/salad/salad/vpr_model.py", line 1, in <module>
+    import pytorch_lightning as pl
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/pytorch_lightning/__init__.py", line 27, in <module>
+    from pytorch_lightning.callbacks import Callback  # noqa: E402
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/pytorch_lightning/callbacks/__init__.py", line 14, in <module>
+    from pytorch_lightning.callbacks.batch_size_finder import BatchSizeFinder
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/pytorch_lightning/callbacks/batch_size_finder.py", line 26, in <module>
+    from pytorch_lightning.callbacks.callback import Callback
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/pytorch_lightning/callbacks/callback.py", line 22, in <module>
+    from pytorch_lightning.utilities.types import STEP_OUTPUT
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/pytorch_lightning/utilities/types.py", line 36, in <module>
+    from torchmetrics import Metric
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/torchmetrics/__init__.py", line 37, in <module>
+    from torchmetrics import functional  # noqa: E402
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/torchmetrics/functional/__init__.py", line 129, in <module>
+    from torchmetrics.functional.text._deprecated import _bleu_score as bleu_score
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/torchmetrics/functional/text/__init__.py", line 50, in <module>
+    from torchmetrics.functional.text.bert import bert_score
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/torchmetrics/functional/text/bert.py", line 56, in <module>
+    from transformers import AutoModel, AutoTokenizer
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/transformers/__init__.py", line 26, in <module>
+    from . import dependency_versions_check
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/transformers/dependency_versions_check.py", line 57, in <module>
+    require_version_core(deps[pkg])
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/transformers/utils/versions.py", line 117, in require_version_core
+    return require_version(requirement, hint)
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/transformers/utils/versions.py", line 111, in require_version
+    _compare_versions(op, got_ver, want_ver, requirement, pkg, hint)
+  File "/home/avilasha2/scratch/conda/envs/vggt-slam/lib/python3.10/site-packages/transformers/utils/versions.py", line 44, in _compare_versions
+    raise ImportError(
+ImportError: huggingface-hub>=0.26.0,<1.0 is required for a normal functioning of this module, but found huggingface-hub==1.18.0.
+Try: `pip install transformers -U` or `pip install -e '.[dev]'` if you're working with git main
+[16:22:32]   WARNING: exited 1
+[16:22:32] STEP 1 done. Submaps with READY flag: 0
+[16:22:32] ERROR: No submaps found. Check step 1 output. Skipping sequence.

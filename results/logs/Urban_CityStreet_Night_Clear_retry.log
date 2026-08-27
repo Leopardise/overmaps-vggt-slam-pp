@@ -1,0 +1,1663 @@
+[00:54:35] ============================================================
+[00:54:35] SEQUENCE : Urban_CityStreet_Night_Clear
+[00:54:35] UUID     : dd329eef-e796-4915-8ce0-dc8e3e844840
+[00:54:35] Root     : /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear
+[00:54:35] VGGT_CKPT: /home/avilasha2/scratch/caches/torch/hub/checkpoints/model.pt
+[00:54:35] ============================================================
+[00:54:35] STEP 1: main.py — VGGT + DEM + submap dump
+[00:54:35] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 main.py --image_folder /data1/avilasha2/overmaps/OverMaps-1K/images/dd329eef-e796-4915-8ce0-dc8e3e844840 --vggt_ckpt /home/avilasha2/scratch/caches/torch/hub/checkpoints/model.pt --submap_size 32 --overlapping_window_size 1 --min_disparity 40 --use_sim3 --global_dem_out_dir /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear --global_target_px 90000 --global_tile_px 4096 --global_reducer softmax --global_softmax_tau 0.02 --global_cycle_m 0.001 --global_edge_strength 0.95 --global_shade_strength 0.70 --global_dark_level 0.09 --global_unsharp_radius 1.0 --global_unsharp_amount 0.8 --global_clahe_clip 2.0 --global_clahe_grid 8 --log_results --skip_dense_log --dump_submaps --make_global_dem_tiled --log_path /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/poses_vanilla.txt
+Using device: cuda
+Starting viser server on port 8080
+╭──────────────── viser ────────────────╮
+│             ╷                         │
+│   HTTP      │ http://localhost:8080   │
+│   Websocket │ ws://localhost:8080     │
+│             ╵                         │
+╰───────────────────────────────────────╯
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/serizba_salad_main
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+Loaded model from /home/avilasha2/scratch/caches/torch/hub/checkpoints/dino_salad.ckpt Successfully!
+Starting viser server...
+Initializing VGGT backbone…
+Loading images from /data1/avilasha2/overmaps/OverMaps-1K/images/dd329eef-e796-4915-8ce0-dc8e3e844840 …
+Found 300 images
+  0%|          | 0/300 [00:00<?, ?it/s]  1%|          | 2/300 [00:00<00:15, 19.74it/s]  2%|▏         | 5/300 [00:00<00:13, 21.12it/s]  3%|▎         | 8/300 [00:00<00:14, 19.64it/s]  4%|▎         | 11/300 [00:00<00:14, 20.07it/s]  5%|▍         | 14/300 [00:00<00:13, 20.90it/s]  6%|▌         | 17/300 [00:00<00:13, 21.14it/s]  7%|▋         | 20/300 [00:00<00:13, 20.62it/s]  8%|▊         | 23/300 [00:01<00:13, 20.73it/s]  9%|▊         | 26/300 [00:01<00:13, 20.07it/s] 10%|▉         | 29/300 [00:01<00:13, 20.05it/s] 11%|█         | 32/300 [00:01<00:13, 19.95it/s] 11%|█▏        | 34/300 [00:07<02:54,  1.52it/s] 12%|█▏        | 36/300 [00:07<02:14,  1.96it/s] 13%|█▎        | 39/300 [00:07<01:31,  2.84it/s] 14%|█▎        | 41/300 [00:07<01:12,  3.59it/s] 15%|█▍        | 44/300 [00:07<00:50,  5.05it/s] 15%|█▌        | 46/300 [00:07<00:41,  6.15it/s] 16%|█▋        | 49/300 [00:07<00:30,  8.17it/s] 17%|█▋        | 52/300 [00:07<00:24, 10.24it/s] 18%|█▊        | 54/300 [00:08<00:21, 11.29it/s] 19%|█▉        | 57/300 [00:08<00:18, 13.48it/s] 20%|██        | 60/300 [00:08<00:15, 15.19it/s] 21%|██        | 63/300 [00:08<00:14, 16.77it/s] 22%|██▏       | 66/300 [00:13<02:10,  1.79it/s] 23%|██▎       | 69/300 [00:13<01:32,  2.51it/s] 24%|██▍       | 72/300 [00:13<01:06,  3.43it/s] 25%|██▌       | 75/300 [00:13<00:48,  4.62it/s] 26%|██▌       | 78/300 [00:14<00:36,  6.01it/s] 27%|██▋       | 80/300 [00:14<00:31,  7.07it/s] 27%|██▋       | 82/300 [00:14<00:26,  8.36it/s] 28%|██▊       | 84/300 [00:14<00:22,  9.74it/s] 29%|██▊       | 86/300 [00:14<00:19, 11.17it/s] 29%|██▉       | 88/300 [00:14<00:16, 12.49it/s] 30%|███       | 91/300 [00:14<00:14, 14.51it/s] 31%|███       | 93/300 [00:14<00:13, 15.58it/s] 32%|███▏      | 95/300 [00:14<00:12, 16.31it/s] 32%|███▏      | 97/300 [00:15<00:12, 16.85it/s] 33%|███▎      | 99/300 [00:19<02:30,  1.33it/s] 34%|███▎      | 101/300 [00:20<01:49,  1.82it/s] 34%|███▍      | 103/300 [00:20<01:19,  2.47it/s] 35%|███▌      | 105/300 [00:20<00:58,  3.32it/s] 36%|███▌      | 107/300 [00:20<00:44,  4.38it/s] 36%|███▋      | 109/300 [00:20<00:33,  5.65it/s] 37%|███▋      | 111/300 [00:20<00:26,  7.10it/s] 38%|███▊      | 113/300 [00:20<00:21,  8.71it/s] 39%|███▊      | 116/300 [00:20<00:16, 11.17it/s] 39%|███▉      | 118/300 [00:20<00:14, 12.49it/s] 40%|████      | 121/300 [00:21<00:12, 14.87it/s] 41%|████      | 123/300 [00:21<00:11, 15.83it/s] 42%|████▏     | 125/300 [00:21<00:10, 16.42it/s] 42%|████▏     | 127/300 [00:21<00:10, 17.06it/s]Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+[frontend] dumped sm_00000: 2213673 pts | xyz_min=[-1.62  -1.732  0.021] xyz_max=[1.618 0.258 4.653] → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00000
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+scale factor 0.9070514540105281
+added between factor 0 1
+[frontend] dumped sm_00001: 2213673 pts | xyz_min=[ 0.273 -1.479 -2.64 ] xyz_max=[3.96  0.131 0.217] → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00001
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+scale factor 1.2184038028348896
+added between factor 1 2
+[frontend] dumped sm_00002: 2213673 pts | xyz_min=[-3.549 -2.291 -0.097] xyz_max=[0.523 0.201 5.296] → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00002
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+ 43%|████▎     | 130/300 [00:26<01:51,  1.52it/s] 44%|████▍     | 132/300 [00:26<01:24,  2.00it/s] 45%|████▍     | 134/300 [00:26<01:03,  2.63it/s] 46%|████▌     | 137/300 [00:26<00:41,  3.88it/s] 46%|████▋     | 139/300 [00:26<00:32,  4.90it/s] 47%|████▋     | 142/300 [00:27<00:23,  6.73it/s] 48%|████▊     | 145/300 [00:27<00:17,  8.64it/s] 49%|████▉     | 148/300 [00:27<00:14, 10.58it/s] 50%|█████     | 151/300 [00:27<00:11, 12.70it/s] 51%|█████▏    | 154/300 [00:27<00:10, 14.04it/s] 52%|█████▏    | 157/300 [00:27<00:09, 15.45it/s] 53%|█████▎    | 160/300 [00:27<00:08, 16.90it/s] 54%|█████▍    | 163/300 [00:33<01:17,  1.78it/s] 55%|█████▌    | 165/300 [00:33<01:00,  2.22it/s] 56%|█████▌    | 168/300 [00:33<00:42,  3.13it/s] 57%|█████▋    | 170/300 [00:33<00:33,  3.90it/s] 57%|█████▋    | 172/300 [00:33<00:26,  4.87it/s] 58%|█████▊    | 175/300 [00:33<00:18,  6.59it/s] 59%|█████▉    | 177/300 [00:33<00:15,  7.88it/s] 60%|█████▉    | 179/300 [00:33<00:12,  9.33it/s] 60%|██████    | 181/300 [00:34<00:10, 10.92it/s] 61%|██████    | 183/300 [00:34<00:09, 12.49it/s] 62%|██████▏   | 186/300 [00:34<00:07, 15.03it/s] 63%|██████▎   | 189/300 [00:34<00:06, 16.49it/s] 64%|██████▍   | 192/300 [00:34<00:06, 16.99it/s] 65%|██████▍   | 194/300 [00:39<01:07,  1.56it/s] 66%|██████▌   | 197/300 [00:39<00:45,  2.27it/s] 66%|██████▋   | 199/300 [00:39<00:34,  2.90it/s] 67%|██████▋   | 202/300 [00:39<00:23,  4.11it/s] 68%|██████▊   | 204/300 [00:40<00:18,  5.10it/s] 69%|██████▉   | 207/300 [00:40<00:13,  6.87it/s] 70%|██████▉   | 209/300 [00:40<00:11,  8.17it/s] 71%|███████   | 212/300 [00:40<00:08, 10.33it/s] 71%|███████▏  | 214/300 [00:40<00:07, 11.71it/s] 72%|███████▏  | 217/300 [00:40<00:05, 14.22it/s] 73%|███████▎  | 220/300 [00:40<00:05, 15.43it/s] 74%|███████▍  | 223/300 [00:41<00:04, 16.77it/s] 75%|███████▌  | 226/300 [00:46<00:42,  1.76it/s] 76%|███████▌  | 228/300 [00:46<00:32,  2.23it/s] 77%|███████▋  | 230/300 [00:46<00:24,  2.84it/s] 78%|███████▊  | 233/300 [00:46<00:16,  4.05it/s] 79%|███████▊  | 236/300 [00:46<00:11,  5.55it/s] 79%|███████▉  | 238/300 [00:46<00:09,  6.63it/s] 80%|████████  | 240/300 [00:46<00:07,  7.96it/s] 81%|████████  | 242/300 [00:46<00:06,  9.39it/s] 81%|████████▏ | 244/300 [00:46<00:05, 10.99it/s] 82%|████████▏ | 246/300 [00:47<00:04, 12.50it/s] 83%|████████▎ | 248/300 [00:47<00:03, 13.99it/s] 83%|████████▎ | 250/300 [00:47<00:03, 15.04it/s] 84%|████████▍ | 252/300 [00:47<00:02, 16.02it/s] 85%|████████▍ | 254/300 [00:47<00:02, 16.96it/s] 85%|████████▌ | 256/300 [00:47<00:02, 17.00it/s]Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+scale factor 1.436583905942788
+added between factor 2 3
+[frontend] dumped sm_00003: 2213673 pts | xyz_min=[-5.755 -2.461 -0.02 ] xyz_max=[0.199 0.144 5.077] → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00003
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+scale factor 1.3616096207795754
+added between factor 3 4
+[frontend] dumped sm_00004: 2213673 pts | xyz_min=[ 0.477 -2.196 -5.668] xyz_max=[5.004 0.361 0.322] → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00004
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+scale factor 1.7961343044534204
+added between factor 4 5
+[frontend] dumped sm_00005: 2213673 pts | xyz_min=[-0.99  -2.524 -7.32 ] xyz_max=[4.102 0.505 0.407] → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00005
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+scale factor 1.9136571788224277
+added between factor 5 6
+[frontend] dumped sm_00006: 2213673 pts | xyz_min=[-1.614 -2.452 -5.84 ] xyz_max=[2.477 0.201 0.406] → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00006
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+ 86%|████████▌ | 258/300 [00:52<00:33,  1.26it/s] 87%|████████▋ | 261/300 [00:52<00:19,  1.99it/s] 88%|████████▊ | 263/300 [00:52<00:14,  2.61it/s] 89%|████████▊ | 266/300 [00:53<00:08,  3.84it/s] 89%|████████▉ | 268/300 [00:53<00:06,  4.83it/s] 90%|█████████ | 270/300 [00:53<00:04,  6.06it/s] 91%|█████████ | 272/300 [00:53<00:03,  7.44it/s] 91%|█████████▏| 274/300 [00:53<00:02,  8.90it/s] 92%|█████████▏| 276/300 [00:53<00:02, 10.51it/s] 93%|█████████▎| 278/300 [00:53<00:01, 12.09it/s] 93%|█████████▎| 280/300 [00:53<00:01, 13.50it/s] 94%|█████████▍| 282/300 [00:53<00:01, 14.65it/s] 95%|█████████▌| 285/300 [00:54<00:00, 16.79it/s] 96%|█████████▌| 288/300 [00:54<00:00, 18.38it/s] 97%|█████████▋| 291/300 [00:59<00:05,  1.64it/s] 98%|█████████▊| 293/300 [00:59<00:03,  2.11it/s] 98%|█████████▊| 295/300 [00:59<00:01,  2.74it/s] 99%|█████████▉| 297/300 [00:59<00:00,  3.54it/s]100%|█████████▉| 299/300 [00:59<00:00,  4.58it/s]100%|██████████| 300/300 [01:01<00:00,  4.89it/s]
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+scale factor 1.9917665972191236
+added between factor 6 7
+[frontend] dumped sm_00007: 2213673 pts | xyz_min=[-6.98  -3.612 -8.927] xyz_max=[0.141 0.363 0.374] → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00007
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+scale factor 1.475619056889414
+added between factor 7 8
+[frontend] dumped sm_00008: 2213673 pts | xyz_min=[-5.483 -3.327 -0.279] xyz_max=[-0.043  0.185  6.745] → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00008
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([11, 3, 518, 518])
+21
+CameraHead trunk_fn: B=1, S=11, C=2048
+scale factor 1.8939365338553855
+added between factor 8 9
+[frontend] dumped sm_00009: 737891 pts | xyz_min=[-6.082 -2.029 -3.003] xyz_max=[-0.038  0.227  0.506] → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00009
+Total submaps: 10
+Total loop closures: 0
+[global_dem_tiled] DONE → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear
+  tiles:        418  (22 × 19, 4096px each)
+  quicklook:    mosaic_quicklook.png  (4092×3534)
+  quicklook(c): mosaic_quicklook_color.png
+  index:        index.json
+[01:33:05] STEP 1 done. Submaps: 10
+[01:33:05] STEP 2: backend_watch — chip + DINOv2 embed
+[01:33:05]   backend_watch PID=964055 | target: 10 submaps
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[01:34:21]   backend_watch: 1/10 embedded
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+[01:35:06]   backend_watch: 2/10 embedded
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+[01:36:06]   backend_watch: 3/10 embedded
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+[01:37:06]   backend_watch: 4/10 embedded
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+[01:38:21]   backend_watch: 5/10 embedded
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+[01:39:51]   backend_watch: 6/10 embedded
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+[01:41:06]   backend_watch: 7/10 embedded
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+[01:43:06]   backend_watch: 8/10 embedded
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+[01:44:21]   backend_watch: 9/10 embedded
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+[01:45:21]   backend_watch: 10/10 embedded
+[01:45:21]   backend_watch: ALL done. Terminating.
+[watch] chipped sm_00000: 30 chips, 30 tiles
+[watch] embedding (windowed) for sm_00000 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 30 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00000/chips
+[watch] chipped sm_00001: 24 chips, 24 tiles
+[watch] embedding (windowed) for sm_00001 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 24 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00001/chips
+[watch] chipped sm_00002: 38 chips, 38 tiles
+[watch] embedding (windowed) for sm_00002 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 38 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00002/chips
+[watch] chipped sm_00003: 40 chips, 40 tiles
+[watch] embedding (windowed) for sm_00003 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 40 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00003/chips
+[watch] chipped sm_00004: 46 chips, 46 tiles
+[watch] embedding (windowed) for sm_00004 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 46 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00004/chips
+[watch] chipped sm_00005: 69 chips, 69 tiles
+[watch] embedding (windowed) for sm_00005 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 69 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00005/chips
+[watch] chipped sm_00006: 47 chips, 47 tiles
+[watch] embedding (windowed) for sm_00006 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 47 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00006/chips
+[watch] chipped sm_00007: 88 chips, 88 tiles
+[watch] embedding (windowed) for sm_00007 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 88 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00007/chips
+[watch] chipped sm_00008: 61 chips, 61 tiles
+[watch] embedding (windowed) for sm_00008 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 61 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00008/chips
+[watch] chipped sm_00009: 44 chips, 44 tiles
+[watch] embedding (windowed) for sm_00009 using facebook/dinov2-base …
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb-submap] wrote 44 embeddings in /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00009/chips
+[watch] using watchdog; watching /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps … (Ctrl+C to stop)
+[01:45:26]   backend_watch terminated.
+[01:45:26] STEP 2 done. 10/10 embedded.
+[01:45:26] STEP 3: embed_global_tiles.py
+[01:45:26] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/embed_global_tiles.py --root /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear --dino-model facebook/dinov2-base --mode resize --max-edge 1536 --overwrite
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[emb] 125/418
+[emb] 150/418
+[emb] 175/418
+[emb] 200/418
+[emb] 225/418
+[emb] 250/418
+[emb] 275/418
+[emb] 300/418
+[emb] 325/418
+[emb] 350/418
+[emb] 400/418
+[emb] done: wrote 266 embeddings → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/global_embeddings
+[emb] valid.json created with 266 tile IDs
+[01:48:42] STEP 4: faiss_global_index.py
+[01:48:42] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/faiss_global_index.py --root /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear --index hnsw --hnsw-M 32 --hnsw-efC 200
+[faiss] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/global_embeddings/faiss_hnsw.index  (N=266, dim=768)
+[faiss] idmap: /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/global_embeddings/idmap.json
+[01:48:43] STEP 5a: build_tile_owners.py
+[01:48:43] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/build_tile_owners.py --root /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear --overwrite
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submap_index/tile_owners.json (tiles indexed: 281)
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submap_index/submap_tiles.json (submaps indexed: 10)
+[01:48:44] STEP 5b: vis_submap_ownership.py
+[01:48:44] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 vggt_slam/tools/vis_submap_ownership.py --root /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear --alpha 0.35 --grid
+[ok] colored mosaic:          /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/mosaic_submap_colors.png
+[ok] colored mosaic (grid):  /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/mosaic_submap_colors_with_grid.png
+[ok] legend:                  /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submap_color_legend.png
+[info] tiles with owners:     281 / 418
+[info] unique submaps:        10
+[01:48:45] STEP 5c: run_batch_submaps.sh
+[01:48:45] CMD: bash vggt_slam/tools/run_batch_submaps.sh /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear 0 20 --dino facebook/dinov2-base --faiss hnsw --match-topk 20 --vote-topn 10 --vote-pad 0 --vpr-clusters 64 --vpr-topk 50 --max-edge 1024 --force --update-loop-votes --per-chip-topk 7 --topn-loop 7
+
+==================== Submap sm_00000 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --submap "sm_00000"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00000: 30 DEM chips
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00000/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00000/covis_heatmap.png
+[debug] skipped_too_sparse=28, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00000"       --exclude-self --weighted
+[vote] best gallery submap: sm_00001  (out → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00000/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00000"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00000/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 4 entries. Top-5: [('sm_00001', 1.7), ('sm_00004', 0.578), ('sm_00005', 0.35), ('sm_00006', 0.35)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00000/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00000/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00000/region.json
+[info] region tiles: 102 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00000/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00000/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00000/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00000/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 30 queries, 102 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 50/102 imgs, patches so far=12800
+[kmeans] seed 100/102 imgs, patches so far=25600
+[kmeans] seed 102/102 imgs, patches so far=26112
+[kmeans] fitting MiniBatchKMeans on 26112 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00000/c_centers.npy
+[vlad] 25/30
+[vlad] 30/30
+[vlad] 25/102
+[vlad] 50/102
+[vlad] 75/102
+[vlad] 100/102
+[vlad] 102/102
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00000/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"         --submap "sm_00000"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00000/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/loop_votes.csv for sm_00000: top-7 = sm_00005(562.000), sm_00004(282.000), sm_00006(259.000), sm_00001(181.000), sm_00007(33.000), sm_00009(8.000), sm_00002(4.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00000"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00000/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00000/patch_matches_grid.png
+[ok] Submap sm_00000 done.
+
+==================== Submap sm_00001 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --submap "sm_00001"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00001: 24 DEM chips
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00001/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00001/covis_heatmap.png
+[debug] skipped_too_sparse=22, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00001"       --exclude-self --weighted
+[vote] best gallery submap: sm_00007  (out → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00001/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00001"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00001/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 9 entries. Top-5: [('sm_00007', 1.273), ('sm_00009', 0.912), ('sm_00005', 0.748), ('sm_00006', 0.748), ('sm_00002', 0.666)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00001/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00001/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00001/region.json
+[info] region tiles: 273 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00001/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00001/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00001/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00001/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 24 queries, 273 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 50/273 imgs, patches so far=12800
+[kmeans] seed 100/273 imgs, patches so far=25600
+[kmeans] seed 150/273 imgs, patches so far=38400
+[kmeans] seed 200/273 imgs, patches so far=51200
+[kmeans] seed 250/273 imgs, patches so far=64000
+[kmeans] seed 273/273 imgs, patches so far=69888
+[kmeans] fitting MiniBatchKMeans on 69888 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00001/c_centers.npy
+[vlad] 24/24
+[vlad] 25/273
+[vlad] 50/273
+[vlad] 75/273
+[vlad] 100/273
+[vlad] 125/273
+[vlad] 150/273
+[vlad] 175/273
+[vlad] 200/273
+[vlad] 225/273
+[vlad] 250/273
+[vlad] 273/273
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00001/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"         --submap "sm_00001"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00001/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/loop_votes.csv for sm_00001: top-7 = sm_00007(158.000), sm_00008(141.000), sm_00003(140.000), sm_00009(125.000), sm_00004(103.000), sm_00002(78.000), sm_00005(77.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00001"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00001/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00001/patch_matches_grid.png
+[ok] Submap sm_00001 done.
+
+==================== Submap sm_00002 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --submap "sm_00002"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00002: 38 DEM chips
+[match] 20/38
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00002/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00002/covis_heatmap.png
+[debug] skipped_too_sparse=35, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00002"       --exclude-self --weighted
+[vote] best gallery submap: sm_00007  (out → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00002/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00002"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00002/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 7 entries. Top-5: [('sm_00007', 2.314), ('sm_00009', 1.804), ('sm_00001', 1.648), ('sm_00006', 1.313), ('sm_00005', 1.232)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00002/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00002/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00002/region.json
+[info] region tiles: 258 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00002/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00002/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00002/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00002/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 38 queries, 258 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 50/258 imgs, patches so far=12800
+[kmeans] seed 100/258 imgs, patches so far=25600
+[kmeans] seed 150/258 imgs, patches so far=38400
+[kmeans] seed 200/258 imgs, patches so far=51200
+[kmeans] seed 250/258 imgs, patches so far=64000
+[kmeans] seed 258/258 imgs, patches so far=66048
+[kmeans] fitting MiniBatchKMeans on 66048 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00002/c_centers.npy
+[vlad] 25/38
+[vlad] 38/38
+[vlad] 25/258
+[vlad] 50/258
+[vlad] 75/258
+[vlad] 100/258
+[vlad] 125/258
+[vlad] 150/258
+[vlad] 175/258
+[vlad] 200/258
+[vlad] 225/258
+[vlad] 250/258
+[vlad] 258/258
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00002/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"         --submap "sm_00002"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00002/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/loop_votes.csv for sm_00002: top-7 = sm_00008(529.000), sm_00007(304.000), sm_00003(240.000), sm_00004(98.000), sm_00005(95.000), sm_00000(83.000), sm_00009(75.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00002"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00002/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00002/patch_matches_grid.png
+[ok] Submap sm_00002 done.
+
+==================== Submap sm_00003 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --submap "sm_00003"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00003: 40 DEM chips
+[match] 40/40
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00003/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00003/covis_heatmap.png
+[debug] skipped_too_sparse=38, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00003"       --exclude-self --weighted
+[vote] best gallery submap: sm_00009  (out → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00003/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00003"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00003/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 9 entries. Top-5: [('sm_00009', 2.247), ('sm_00007', 1.877), ('sm_00001', 1.026), ('sm_00005', 0.896), ('sm_00006', 0.896)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00003/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00003/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00003/region.json
+[info] region tiles: 272 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00003/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00003/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00003/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00003/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 40 queries, 272 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 50/272 imgs, patches so far=12800
+[kmeans] seed 100/272 imgs, patches so far=25600
+[kmeans] seed 150/272 imgs, patches so far=38400
+[kmeans] seed 200/272 imgs, patches so far=51200
+[kmeans] seed 250/272 imgs, patches so far=64000
+[kmeans] seed 272/272 imgs, patches so far=69632
+[kmeans] fitting MiniBatchKMeans on 69632 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00003/c_centers.npy
+[vlad] 25/40
+[vlad] 40/40
+[vlad] 25/272
+[vlad] 50/272
+[vlad] 75/272
+[vlad] 100/272
+[vlad] 125/272
+[vlad] 150/272
+[vlad] 175/272
+[vlad] 200/272
+[vlad] 225/272
+[vlad] 250/272
+[vlad] 272/272
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00003/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"         --submap "sm_00003"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00003/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/loop_votes.csv for sm_00003: top-7 = sm_00008(489.000), sm_00007(324.000), sm_00002(225.000), sm_00000(131.000), sm_00009(128.000), sm_00004(76.000), sm_00005(69.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00003"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00003/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00003/patch_matches_grid.png
+[ok] Submap sm_00003 done.
+
+==================== Submap sm_00004 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --submap "sm_00004"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00004: 46 DEM chips
+[match] 10/46
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00004/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00004/covis_heatmap.png
+[debug] skipped_too_sparse=44, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00004"       --exclude-self --weighted
+[vote] best gallery submap: sm_00007  (out → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00004/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00004"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00004/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 9 entries. Top-5: [('sm_00007', 3.515), ('sm_00009', 2.4), ('sm_00001', 1.293), ('sm_00006', 1.23), ('sm_00005', 0.979)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00004/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00004/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00004/region.json
+[info] region tiles: 271 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00004/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00004/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00004/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00004/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 46 queries, 271 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 50/271 imgs, patches so far=12800
+[kmeans] seed 100/271 imgs, patches so far=25600
+[kmeans] seed 150/271 imgs, patches so far=38400
+[kmeans] seed 200/271 imgs, patches so far=51200
+[kmeans] seed 250/271 imgs, patches so far=64000
+[kmeans] seed 271/271 imgs, patches so far=69376
+[kmeans] fitting MiniBatchKMeans on 69376 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00004/c_centers.npy
+[vlad] 25/46
+[vlad] 46/46
+[vlad] 25/271
+[vlad] 50/271
+[vlad] 75/271
+[vlad] 100/271
+[vlad] 125/271
+[vlad] 150/271
+[vlad] 175/271
+[vlad] 200/271
+[vlad] 225/271
+[vlad] 250/271
+[vlad] 271/271
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00004/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"         --submap "sm_00004"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00004/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/loop_votes.csv for sm_00004: top-7 = sm_00007(490.000), sm_00008(346.000), sm_00005(198.000), sm_00009(135.000), sm_00003(96.000), sm_00000(93.000), sm_00006(91.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00004"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00004/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00004/patch_matches_grid.png
+[ok] Submap sm_00004 done.
+
+==================== Submap sm_00005 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --submap "sm_00005"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00005: 69 DEM chips
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00005/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00005/covis_heatmap.png
+[debug] skipped_too_sparse=64, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00005"       --exclude-self --weighted
+[vote] best gallery submap: sm_00007  (out → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00005/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00005"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00005/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 6 entries. Top-5: [('sm_00007', 10.183), ('sm_00009', 5.559), ('sm_00001', 5.162), ('sm_00004', 4.029), ('sm_00006', 1.59)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00005/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00005/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00005/region.json
+[info] region tiles: 242 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00005/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00005/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00005/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00005/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 69 queries, 242 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 50/242 imgs, patches so far=12800
+[kmeans] seed 100/242 imgs, patches so far=25600
+[kmeans] seed 150/242 imgs, patches so far=38400
+[kmeans] seed 200/242 imgs, patches so far=51200
+[kmeans] seed 242/242 imgs, patches so far=61952
+[kmeans] fitting MiniBatchKMeans on 61952 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00005/c_centers.npy
+[vlad] 25/69
+[vlad] 50/69
+[vlad] 69/69
+[vlad] 25/242
+[vlad] 50/242
+[vlad] 75/242
+[vlad] 100/242
+[vlad] 125/242
+[vlad] 150/242
+[vlad] 175/242
+[vlad] 200/242
+[vlad] 225/242
+[vlad] 242/242
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00005/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"         --submap "sm_00005"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00005/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/loop_votes.csv for sm_00005: top-7 = sm_00007(816.000), sm_00004(415.000), sm_00008(381.000), sm_00006(252.000), sm_00009(220.000), sm_00001(92.000), sm_00003(62.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00005"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00005/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00005/patch_matches_grid.png
+[ok] Submap sm_00005 done.
+
+==================== Submap sm_00006 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --submap "sm_00006"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00006: 47 DEM chips
+[match] 30/47
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00006/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00006/covis_heatmap.png
+[debug] skipped_too_sparse=44, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00006"       --exclude-self --weighted
+[vote] best gallery submap: sm_00001  (out → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00006/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00006"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00006/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 4 entries. Top-5: [('sm_00001', 2.33), ('sm_00007', 1.993), ('sm_00009', 1.297), ('sm_00004', 0.84)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00006/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00006/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00006/region.json
+[info] region tiles: 171 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00006/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00006/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00006/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00006/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 47 queries, 171 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 50/171 imgs, patches so far=12800
+[kmeans] seed 100/171 imgs, patches so far=25600
+[kmeans] seed 150/171 imgs, patches so far=38400
+[kmeans] seed 171/171 imgs, patches so far=43776
+[kmeans] fitting MiniBatchKMeans on 43776 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00006/c_centers.npy
+[vlad] 25/47
+[vlad] 47/47
+[vlad] 25/171
+[vlad] 50/171
+[vlad] 75/171
+[vlad] 100/171
+[vlad] 125/171
+[vlad] 150/171
+[vlad] 171/171
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00006/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"         --submap "sm_00006"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00006/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/loop_votes.csv for sm_00006: top-7 = sm_00007(820.000), sm_00004(288.000), sm_00009(186.000), sm_00001(127.000), sm_00005(83.000), sm_00002(3.000), sm_00003(3.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00006"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00006/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00006/patch_matches_grid.png
+[ok] Submap sm_00006 done.
+
+==================== Submap sm_00007 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --submap "sm_00007"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00007: 88 DEM chips
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00007/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00007/covis_heatmap.png
+[debug] skipped_too_sparse=85, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00007"       --exclude-self --weighted
+[vote] best gallery submap: sm_00001  (out → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00007/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00007"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00007/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 5 entries. Top-5: [('sm_00001', 3.109), ('sm_00004', 2.228), ('sm_00005', 1.703), ('sm_00006', 1.703), ('sm_00009', 0.409)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00007/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00007/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00007/region.json
+[info] region tiles: 144 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00007/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00007/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00007/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00007/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 88 queries, 144 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 50/144 imgs, patches so far=12800
+[kmeans] seed 100/144 imgs, patches so far=25600
+[kmeans] seed 144/144 imgs, patches so far=36864
+[kmeans] fitting MiniBatchKMeans on 36864 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00007/c_centers.npy
+[vlad] 25/88
+[vlad] 50/88
+[vlad] 75/88
+[vlad] 88/88
+[vlad] 25/144
+[vlad] 50/144
+[vlad] 75/144
+[vlad] 100/144
+[vlad] 125/144
+[vlad] 144/144
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00007/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"         --submap "sm_00007"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00007/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/loop_votes.csv for sm_00007: top-7 = sm_00005(1175.000), sm_00009(904.000), sm_00006(579.000), sm_00004(418.000), sm_00001(122.000), sm_00008(22.000), sm_00002(12.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00007"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00007/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00007/patch_matches_grid.png
+[ok] Submap sm_00007 done.
+
+==================== Submap sm_00008 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --submap "sm_00008"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00008: 61 DEM chips
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00008/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00008/covis_heatmap.png
+[debug] skipped_too_sparse=58, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00008"       --exclude-self --weighted
+[vote] best gallery submap: sm_00001  (out → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00008/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00008"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00008/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 8 entries. Top-5: [('sm_00001', 1.843), ('sm_00007', 1.664), ('sm_00009', 1.574), ('sm_00005', 1.226), ('sm_00006', 1.226)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00008/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00008/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00008/region.json
+[info] region tiles: 244 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00008/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00008/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00008/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00008/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 61 queries, 244 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 50/244 imgs, patches so far=12800
+[kmeans] seed 100/244 imgs, patches so far=25600
+[kmeans] seed 150/244 imgs, patches so far=38400
+[kmeans] seed 200/244 imgs, patches so far=51200
+[kmeans] seed 244/244 imgs, patches so far=62464
+[kmeans] fitting MiniBatchKMeans on 62464 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00008/c_centers.npy
+[vlad] 25/61
+[vlad] 50/61
+[vlad] 61/61
+[vlad] 25/244
+[vlad] 50/244
+[vlad] 75/244
+[vlad] 100/244
+[vlad] 125/244
+[vlad] 150/244
+[vlad] 175/244
+[vlad] 200/244
+[vlad] 225/244
+[vlad] 244/244
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00008/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"         --submap "sm_00008"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00008/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/loop_votes.csv for sm_00008: top-7 = sm_00007(933.000), sm_00002(250.000), sm_00009(209.000), sm_00000(190.000), sm_00004(185.000), sm_00003(159.000), sm_00005(95.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00008"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00008/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00008/patch_matches_grid.png
+[ok] Submap sm_00008 done.
+
+==================== Submap sm_00009 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --submap "sm_00009"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[dino] loading: facebook/dinov2-base → dinov2_vitb14
+[chips] sm_00009: 44 DEM chips
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00009/matches_topk.json
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00009/covis_heatmap.png
+[debug] skipped_too_sparse=43, empties_after_validRelax=0, empties_after_selfRelax=0
+[done] matching complete.
+[run] python vggt_slam/tools/submap_faiss_vote.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00009"       --exclude-self --weighted
+[vote] best gallery submap: sm_00006  (out → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00009/faiss_votes_by_submap.json)
+[run] python vggt_slam/tools/build_retrieval_region.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear" --submap "sm_00009"       --votes-json "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00009/faiss_votes_by_submap.json"       --topn 10 --pad 0
+[votes] Parsed 9 entries. Top-5: [('sm_00006', 2.234), ('sm_00007', 2.182), ('sm_00005', 1.789), ('sm_00004', 1.152), ('sm_00000', 0.498)]
+[ok] database.txt  → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00009/database.txt
+[ok] queries.txt   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00009/queries.txt
+[ok] region.json   → /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00009/region.json
+[info] region tiles: 253 from top 10 submaps (+pad=0, Nbrs=4)
+[run] python vggt_slam/tools/run_vpr_retrieval.py       --queries "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00009/queries.txt"       --database "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00009/database.txt"       --out "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00009/matches.csv"       --backbone dinov2_vitb14       --mode resize --max-edge 1024       --clusters 64       --topk 50       --save-centers "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00009/c_centers.npy" 
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+[io] 44 queries, 253 database
+[dino] dinov2_vitb14 on cuda
+[kmeans] sampling up to 200000 patches (<= 256/img, <= 1000 imgs), C=64
+[kmeans] seed 50/253 imgs, patches so far=12800
+[kmeans] seed 100/253 imgs, patches so far=25600
+[kmeans] seed 150/253 imgs, patches so far=38400
+[kmeans] seed 200/253 imgs, patches so far=51200
+[kmeans] seed 250/253 imgs, patches so far=64000
+[kmeans] seed 253/253 imgs, patches so far=64768
+[kmeans] fitting MiniBatchKMeans on 64768 patches, dim=768
+[kmeans] done.
+[centers] saved to /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00009/c_centers.npy
+[vlad] 25/44
+[vlad] 44/44
+[vlad] 25/253
+[vlad] 50/253
+[vlad] 75/253
+[vlad] 100/253
+[vlad] 125/253
+[vlad] 150/253
+[vlad] 175/253
+[vlad] 200/253
+[vlad] 225/253
+[vlad] 250/253
+[vlad] 253/253
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00009/matches.csv
+[run] python vggt_slam/tools/update_loop_votes_csv.py         --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"         --submap "sm_00009"         --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00009/matches.csv"         --per-chip-topk 7         --topn 7
+[ok] updated /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/loop_votes.csv for sm_00009: top-7 = sm_00007(605.000), sm_00008(270.000), sm_00005(129.000), sm_00000(91.000), sm_00001(70.000), sm_00004(62.000), sm_00006(39.000)
+[run] python vggt_slam/tools/vis_patch_matches.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --io-dir "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00009"       --matches "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00009/matches.csv"       --topk 10 --max-queries 24
+[ok] wrote /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/anyloc_io/sm_00009/patch_matches_grid.png
+[ok] Submap sm_00009 done.
+
+==================== Submap sm_00010 ====================
+[run] python vggt_slam/tools/submap_chip_embed_match.py       --root "/data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear"       --submap "sm_00010"       --faiss-index "hnsw"       --topk 20       --dino-model "facebook/dinov2-base"       --mode resize --max-edge 1024       --save-chips --exclude-self --vis
+chips dir missing: /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/submaps/sm_00010/chips (run backend_watch.py)
+[02:21:45]   WARNING: exited 1
+[02:21:45]   loop_votes.csv: 10 candidate pairs
+[02:21:45] STEP 6: patch loop_closure.py + optimised trajectory
+[02:21:45] CMD: /home/avilasha2/scratch/conda/envs/vggt-slam/bin/python3 main.py --image_folder /data1/avilasha2/overmaps/OverMaps-1K/images/dd329eef-e796-4915-8ce0-dc8e3e844840 --vggt_ckpt /home/avilasha2/scratch/caches/torch/hub/checkpoints/model.pt --submap_size 32 --overlapping_window_size 1 --min_disparity 40 --use_sim3 --global_dem_out_dir /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear --global_target_px 90000 --global_tile_px 4096 --global_reducer softmax --global_softmax_tau 0.02 --global_cycle_m 0.001 --global_edge_strength 0.95 --global_shade_strength 0.70 --global_dark_level 0.09 --global_unsharp_radius 1.0 --global_unsharp_amount 0.8 --global_clahe_clip 2.0 --global_clahe_grid 8 --log_results --skip_dense_log --max_loops 7 --log_path /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/poses.txt
+Using device: cuda
+Starting viser server on port 8080
+╭──────────────── viser ────────────────╮
+│             ╷                         │
+│   HTTP      │ http://localhost:8080   │
+│   Websocket │ ws://localhost:8080     │
+│             ╵                         │
+╰───────────────────────────────────────╯
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/serizba_salad_main
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+Using cache found in /home/avilasha2/scratch/caches/torch/hub/facebookresearch_dinov2_main
+Loaded model from /home/avilasha2/scratch/caches/torch/hub/checkpoints/dino_salad.ckpt Successfully!
+Starting viser server...
+Initializing VGGT backbone…
+Loading images from /data1/avilasha2/overmaps/OverMaps-1K/images/dd329eef-e796-4915-8ce0-dc8e3e844840 …
+Found 300 images
+  0%|          | 0/300 [00:00<?, ?it/s]  0%|          | 1/300 [00:00<00:38,  7.74it/s]  1%|          | 3/300 [00:00<00:23, 12.86it/s]  2%|▏         | 6/300 [00:00<00:17, 16.69it/s]  3%|▎         | 8/300 [00:00<00:17, 16.28it/s]  3%|▎         | 10/300 [00:00<00:17, 16.99it/s]  4%|▍         | 13/300 [00:00<00:15, 18.82it/s]  5%|▌         | 16/300 [00:00<00:14, 20.04it/s]  6%|▌         | 18/300 [00:01<00:14, 19.52it/s]  7%|▋         | 21/300 [00:01<00:13, 20.09it/s]  8%|▊         | 23/300 [00:01<00:14, 19.50it/s]  8%|▊         | 25/300 [00:01<00:14, 19.43it/s]  9%|▉         | 28/300 [00:01<00:13, 19.96it/s] 10%|█         | 31/300 [00:01<00:13, 20.30it/s] 11%|█▏        | 34/300 [00:08<03:22,  1.31it/s] 12%|█▏        | 36/300 [00:08<02:36,  1.69it/s] 13%|█▎        | 38/300 [00:08<01:59,  2.20it/s] 13%|█▎        | 40/300 [00:08<01:30,  2.88it/s] 14%|█▍        | 42/300 [00:08<01:08,  3.75it/s] 15%|█▍        | 44/300 [00:08<00:55,  4.63it/s] 15%|█▌        | 46/300 [00:09<00:43,  5.89it/s] 16%|█▋        | 49/300 [00:09<00:31,  8.01it/s] 17%|█▋        | 52/300 [00:09<00:24, 10.16it/s] 18%|█▊        | 54/300 [00:09<00:21, 11.27it/s] 19%|█▊        | 56/300 [00:09<00:19, 12.73it/s] 19%|█▉        | 58/300 [00:09<00:17, 13.83it/s] 20%|██        | 60/300 [00:09<00:15, 15.03it/s] 21%|██        | 63/300 [00:09<00:13, 16.93it/s] 22%|██▏       | 65/300 [00:09<00:13, 17.62it/s] 22%|██▏       | 67/300 [00:14<02:37,  1.48it/s] 23%|██▎       | 70/300 [00:14<01:42,  2.25it/s] 24%|██▍       | 73/300 [00:14<01:09,  3.26it/s] 25%|██▌       | 76/300 [00:15<00:49,  4.52it/s] 26%|██▌       | 78/300 [00:15<00:40,  5.49it/s] 27%|██▋       | 80/300 [00:15<00:32,  6.71it/s] 27%|██▋       | 82/300 [00:15<00:27,  8.05it/s] 28%|██▊       | 84/300 [00:15<00:22,  9.40it/s] 29%|██▊       | 86/300 [00:15<00:19, 10.83it/s] 30%|██▉       | 89/300 [00:15<00:15, 13.38it/s] 31%|███       | 92/300 [00:15<00:13, 15.20it/s] 31%|███▏      | 94/300 [00:16<00:12, 15.96it/s] 32%|███▏      | 96/300 [00:16<00:12, 16.37it/s] 33%|███▎      | 98/300 [00:22<03:02,  1.11it/s] 34%|███▎      | 101/300 [00:22<01:57,  1.70it/s] 35%|███▍      | 104/300 [00:22<01:18,  2.49it/s] 35%|███▌      | 106/300 [00:22<01:01,  3.17it/s] 36%|███▌      | 108/300 [00:22<00:47,  4.03it/s] 37%|███▋      | 110/300 [00:23<00:37,  5.06it/s] 37%|███▋      | 112/300 [00:23<00:29,  6.34it/s] 38%|███▊      | 114/300 [00:23<00:23,  7.79it/s] 39%|███▊      | 116/300 [00:23<00:19,  9.34it/s] 40%|███▉      | 119/300 [00:23<00:15, 11.72it/s] 41%|████      | 122/300 [00:23<00:12, 14.11it/s] 41%|████▏     | 124/300 [00:23<00:11, 15.05it/s] 42%|████▏     | 126/300 [00:23<00:11, 15.45it/s] 43%|████▎     | 128/300 [00:24<00:10, 16.38it/s]Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+[loop_closure] rebuilt pairs (K=7): left-ids=95 total_pairs=128
+  left=2: rights=[0]
+  left=3: rights=[0, 1]
+  left=4: rights=[0, 1, 2]
+  left=5: rights=[0, 2, 3]
+  left=6: rights=[0, 1, 2, 3, 4]
+[loop_closure] submap 0: ordered pairs → rights=[]
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+[loop_closure] submap 1: ordered pairs → rights=[]
+21
+CameraHead trunk_fn: B=1, S=33, C=2048
+scale factor 0.9070514540105281
+added between factor 0 1
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+[loop_closure] submap 2: ordered pairs → rights=[0]
+[loop_closure] submap 2: returned 7 matches (cap=7)
+  · q_sm=0002 f=028 → det_sm=0000 f=027 cos=0.8234
+  · q_sm=0002 f=025 → det_sm=0000 f=009 cos=0.8226
+  · q_sm=0002 f=017 → det_sm=0000 f=016 cos=0.7725
+  · q_sm=0002 f=015 → det_sm=0000 f=005 cos=0.7682
+  · q_sm=0002 f=008 → det_sm=0000 f=017 cos=0.7312
+  · q_sm=0002 f=024 → det_sm=0000 f=025 cos=0.7275
+  · q_sm=0002 f=023 → det_sm=0000 f=026 cos=0.7274
+detected_loops [LoopMatch(similarity_score=0.8233979344367981, query_submap_id=2, query_submap_frame=28, detected_submap_id=0, detected_submap_frame=27), LoopMatch(similarity_score=0.822562038898468, query_submap_id=2, query_submap_frame=25, detected_submap_id=0, detected_submap_frame=9), LoopMatch(similarity_score=0.7724853754043579, query_submap_id=2, query_submap_frame=17, detected_submap_id=0, detected_submap_frame=16), LoopMatch(similarity_score=0.768159806728363, query_submap_id=2, query_submap_frame=15, detected_submap_id=0, detected_submap_frame=5), LoopMatch(similarity_score=0.7312366366386414, query_submap_id=2, query_submap_frame=8, detected_submap_id=0, detected_submap_frame=17), LoopMatch(similarity_score=0.7275174260139465, query_submap_id=2, query_submap_frame=24, detected_submap_id=0, detected_submap_frame=25), LoopMatch(similarity_score=0.727401077747345, query_submap_id=2, query_submap_frame=23, detected_submap_id=0, detected_submap_frame=26)]
+21
+CameraHead trunk_fn: B=1, S=40, C=2048
+scale factor 1.2989089817997619
+added between factor 1 2
+added loop closure factor 0 2
+added loop closure factor 0 2
+added loop closure factor 0 2
+added loop closure factor 0 2
+added loop closure factor 0 2
+added loop closure factor 0 2
+added loop closure factor 0 2
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+ 43%|████▎     | 130/300 [00:30<02:41,  1.05it/s] 44%|████▍     | 132/300 [00:30<01:56,  1.44it/s] 45%|████▍     | 134/300 [00:30<01:24,  1.97it/s] 46%|████▌     | 137/300 [00:30<00:53,  3.02it/s] 47%|████▋     | 140/300 [00:30<00:37,  4.32it/s] 48%|████▊     | 143/300 [00:31<00:26,  5.93it/s] 48%|████▊     | 145/300 [00:31<00:21,  7.09it/s] 49%|████▉     | 147/300 [00:31<00:17,  8.50it/s] 50%|████▉     | 149/300 [00:31<00:15,  9.98it/s] 51%|█████     | 152/300 [00:31<00:12, 12.16it/s] 51%|█████▏    | 154/300 [00:31<00:11, 13.26it/s] 52%|█████▏    | 157/300 [00:31<00:09, 15.01it/s] 53%|█████▎    | 159/300 [00:31<00:08, 15.82it/s] 54%|█████▎    | 161/300 [00:32<00:08, 16.50it/s] 54%|█████▍    | 163/300 [00:38<02:09,  1.05it/s] 55%|█████▌    | 165/300 [00:38<01:34,  1.44it/s] 56%|█████▌    | 168/300 [00:38<00:59,  2.21it/s] 57%|█████▋    | 171/300 [00:39<00:40,  3.21it/s] 58%|█████▊    | 173/300 [00:39<00:31,  4.04it/s] 58%|█████▊    | 175/300 [00:39<00:24,  5.09it/s] 59%|█████▉    | 177/300 [00:39<00:19,  6.31it/s] 60%|█████▉    | 179/300 [00:39<00:15,  7.74it/s] 61%|██████    | 182/300 [00:39<00:11, 10.21it/s] 61%|██████▏   | 184/300 [00:39<00:10, 11.58it/s] 62%|██████▏   | 186/300 [00:39<00:08, 13.08it/s] 63%|██████▎   | 189/300 [00:39<00:07, 15.02it/s] 64%|██████▎   | 191/300 [00:40<00:06, 16.02it/s] 64%|██████▍   | 193/300 [00:40<00:06, 16.86it/s]Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+[loop_closure] submap 3: ordered pairs → rights=[0, 1]
+[loop_closure] submap 3: returned 7 matches (cap=7)
+  · q_sm=0003 f=009 → det_sm=0001 f=003 cos=0.8207
+  · q_sm=0003 f=009 → det_sm=0000 f=017 cos=0.8099
+  · q_sm=0003 f=002 → det_sm=0001 f=030 cos=0.7985
+  · q_sm=0003 f=001 → det_sm=0001 f=026 cos=0.7558
+  · q_sm=0003 f=026 → det_sm=0001 f=016 cos=0.7460
+  · q_sm=0003 f=001 → det_sm=0000 f=008 cos=0.7426
+  · q_sm=0003 f=017 → det_sm=0000 f=026 cos=0.7424
+detected_loops [LoopMatch(similarity_score=0.8206936120986938, query_submap_id=3, query_submap_frame=9, detected_submap_id=1, detected_submap_frame=3), LoopMatch(similarity_score=0.8098644018173218, query_submap_id=3, query_submap_frame=9, detected_submap_id=0, detected_submap_frame=17), LoopMatch(similarity_score=0.7984761595726013, query_submap_id=3, query_submap_frame=2, detected_submap_id=1, detected_submap_frame=30), LoopMatch(similarity_score=0.7558380961418152, query_submap_id=3, query_submap_frame=1, detected_submap_id=1, detected_submap_frame=26), LoopMatch(similarity_score=0.7460223436355591, query_submap_id=3, query_submap_frame=26, detected_submap_id=1, detected_submap_frame=16), LoopMatch(similarity_score=0.7425851225852966, query_submap_id=3, query_submap_frame=1, detected_submap_id=0, detected_submap_frame=8), LoopMatch(similarity_score=0.742382287979126, query_submap_id=3, query_submap_frame=17, detected_submap_id=0, detected_submap_frame=26)]
+21
+CameraHead trunk_fn: B=1, S=40, C=2048
+scale factor 1.5557471558264058
+added between factor 2 3
+added loop closure factor 1 3
+added loop closure factor 0 3
+added loop closure factor 1 3
+added loop closure factor 1 3
+added loop closure factor 1 3
+added loop closure factor 0 3
+added loop closure factor 0 3
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+[loop_closure] submap 4: ordered pairs → rights=[0, 1, 2]
+[loop_closure] submap 4: returned 7 matches (cap=7)
+  · q_sm=0004 f=003 → det_sm=0001 f=023 cos=0.8418
+  · q_sm=0004 f=007 → det_sm=0001 f=003 cos=0.8377
+  · q_sm=0004 f=007 → det_sm=0002 f=008 cos=0.8279
+  · q_sm=0004 f=010 → det_sm=0001 f=007 cos=0.8258
+  · q_sm=0004 f=013 → det_sm=0001 f=010 cos=0.8225
+  · q_sm=0004 f=004 → det_sm=0002 f=015 cos=0.8212
+  · q_sm=0004 f=023 → det_sm=0002 f=002 cos=0.8084
+detected_loops [LoopMatch(similarity_score=0.8418304324150085, query_submap_id=4, query_submap_frame=3, detected_submap_id=1, detected_submap_frame=23), LoopMatch(similarity_score=0.8376854062080383, query_submap_id=4, query_submap_frame=7, detected_submap_id=1, detected_submap_frame=3), LoopMatch(similarity_score=0.82789546251297, query_submap_id=4, query_submap_frame=7, detected_submap_id=2, detected_submap_frame=8), LoopMatch(similarity_score=0.8257611989974976, query_submap_id=4, query_submap_frame=10, detected_submap_id=1, detected_submap_frame=7), LoopMatch(similarity_score=0.8224576115608215, query_submap_id=4, query_submap_frame=13, detected_submap_id=1, detected_submap_frame=10), LoopMatch(similarity_score=0.8211815357208252, query_submap_id=4, query_submap_frame=4, detected_submap_id=2, detected_submap_frame=15), LoopMatch(similarity_score=0.8083929419517517, query_submap_id=4, query_submap_frame=23, detected_submap_id=2, detected_submap_frame=2)]
+21
+CameraHead trunk_fn: B=1, S=40, C=2048
+scale factor 1.4423444530145633
+added between factor 3 4
+added loop closure factor 1 4
+added loop closure factor 1 4
+added loop closure factor 2 4
+added loop closure factor 1 4
+added loop closure factor 1 4
+added loop closure factor 2 4
+added loop closure factor 2 4
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+ 65%|██████▌   | 195/300 [00:46<01:40,  1.04it/s] 66%|██████▌   | 197/300 [00:46<01:12,  1.42it/s] 66%|██████▋   | 199/300 [00:46<00:52,  1.94it/s] 67%|██████▋   | 202/300 [00:47<00:33,  2.95it/s] 68%|██████▊   | 204/300 [00:47<00:25,  3.80it/s] 69%|██████▊   | 206/300 [00:47<00:19,  4.88it/s] 69%|██████▉   | 208/300 [00:47<00:14,  6.17it/s] 70%|███████   | 210/300 [00:47<00:11,  7.66it/s] 71%|███████   | 213/300 [00:47<00:08, 10.03it/s] 72%|███████▏  | 215/300 [00:47<00:07, 11.43it/s] 73%|███████▎  | 218/300 [00:47<00:06, 13.65it/s] 73%|███████▎  | 220/300 [00:48<00:05, 14.63it/s] 74%|███████▍  | 223/300 [00:48<00:04, 16.45it/s] 75%|███████▌  | 226/300 [00:55<01:02,  1.19it/s] 76%|███████▌  | 228/300 [00:55<00:46,  1.54it/s] 77%|███████▋  | 231/300 [00:55<00:30,  2.25it/s] 78%|███████▊  | 233/300 [00:55<00:23,  2.88it/s] 79%|███████▊  | 236/300 [00:55<00:15,  4.11it/s] 80%|███████▉  | 239/300 [00:55<00:10,  5.61it/s] 81%|████████  | 242/300 [00:56<00:07,  7.35it/s] 82%|████████▏ | 245/300 [00:56<00:06,  9.07it/s] 82%|████████▏ | 247/300 [00:56<00:05, 10.26it/s] 83%|████████▎ | 250/300 [00:56<00:04, 12.29it/s] 84%|████████▍ | 253/300 [00:56<00:03, 14.12it/s] 85%|████████▌ | 255/300 [00:56<00:02, 15.08it/s] 86%|████████▌ | 257/300 [00:56<00:02, 15.66it/s]Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+[loop_closure] submap 5: ordered pairs → rights=[0, 2, 3]
+[loop_closure] submap 5: returned 7 matches (cap=7)
+  · q_sm=0005 f=003 → det_sm=0002 f=025 cos=0.8834
+  · q_sm=0005 f=027 → det_sm=0003 f=031 cos=0.8696
+  · q_sm=0005 f=003 → det_sm=0000 f=009 cos=0.8617
+  · q_sm=0005 f=022 → det_sm=0002 f=026 cos=0.8383
+  · q_sm=0005 f=018 → det_sm=0003 f=010 cos=0.8072
+  · q_sm=0005 f=002 → det_sm=0000 f=032 cos=0.7825
+  · q_sm=0005 f=011 → det_sm=0000 f=011 cos=0.7823
+detected_loops [LoopMatch(similarity_score=0.8833999037742615, query_submap_id=5, query_submap_frame=3, detected_submap_id=2, detected_submap_frame=25), LoopMatch(similarity_score=0.8696398735046387, query_submap_id=5, query_submap_frame=27, detected_submap_id=3, detected_submap_frame=31), LoopMatch(similarity_score=0.8616724014282227, query_submap_id=5, query_submap_frame=3, detected_submap_id=0, detected_submap_frame=9), LoopMatch(similarity_score=0.838305652141571, query_submap_id=5, query_submap_frame=22, detected_submap_id=2, detected_submap_frame=26), LoopMatch(similarity_score=0.8071831464767456, query_submap_id=5, query_submap_frame=18, detected_submap_id=3, detected_submap_frame=10), LoopMatch(similarity_score=0.7824812531471252, query_submap_id=5, query_submap_frame=2, detected_submap_id=0, detected_submap_frame=32), LoopMatch(similarity_score=0.7822668552398682, query_submap_id=5, query_submap_frame=11, detected_submap_id=0, detected_submap_frame=11)]
+21
+CameraHead trunk_fn: B=1, S=40, C=2048
+scale factor 1.8127077590157143
+added between factor 4 5
+added loop closure factor 2 5
+added loop closure factor 3 5
+added loop closure factor 0 5
+added loop closure factor 2 5
+added loop closure factor 3 5
+added loop closure factor 0 5
+added loop closure factor 0 5
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+[loop_closure] submap 6: ordered pairs → rights=[0, 1, 2, 3, 4]
+[loop_closure] submap 6: returned 7 matches (cap=7)
+  · q_sm=0006 f=025 → det_sm=0002 f=026 cos=0.8543
+  · q_sm=0006 f=015 → det_sm=0003 f=001 cos=0.8401
+  · q_sm=0006 f=007 → det_sm=0003 f=001 cos=0.8240
+  · q_sm=0006 f=007 → det_sm=0001 f=026 cos=0.8222
+  · q_sm=0006 f=015 → det_sm=0004 f=034 cos=0.8155
+  · q_sm=0006 f=015 → det_sm=0001 f=003 cos=0.8155
+  · q_sm=0006 f=032 → det_sm=0003 f=018 cos=0.8148
+detected_loops [LoopMatch(similarity_score=0.8543292284011841, query_submap_id=6, query_submap_frame=25, detected_submap_id=2, detected_submap_frame=26), LoopMatch(similarity_score=0.840119481086731, query_submap_id=6, query_submap_frame=15, detected_submap_id=3, detected_submap_frame=1), LoopMatch(similarity_score=0.8239530920982361, query_submap_id=6, query_submap_frame=7, detected_submap_id=3, detected_submap_frame=1), LoopMatch(similarity_score=0.822165846824646, query_submap_id=6, query_submap_frame=7, detected_submap_id=1, detected_submap_frame=26), LoopMatch(similarity_score=0.8154550194740295, query_submap_id=6, query_submap_frame=15, detected_submap_id=4, detected_submap_frame=34), LoopMatch(similarity_score=0.8154550194740295, query_submap_id=6, query_submap_frame=15, detected_submap_id=1, detected_submap_frame=3), LoopMatch(similarity_score=0.814838171005249, query_submap_id=6, query_submap_frame=32, detected_submap_id=3, detected_submap_frame=18)]
+21
+CameraHead trunk_fn: B=1, S=40, C=2048
+scale factor 2.0046585687570717
+added between factor 5 6
+added loop closure factor 2 6
+added loop closure factor 3 6
+added loop closure factor 3 6
+added loop closure factor 1 6
+added loop closure factor 4 6
+added loop closure factor 1 6
+added loop closure factor 3 6
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+ 86%|████████▋ | 259/300 [01:04<00:41,  1.02s/it] 87%|████████▋ | 261/300 [01:04<00:29,  1.32it/s] 88%|████████▊ | 263/300 [01:04<00:20,  1.78it/s] 88%|████████▊ | 265/300 [01:04<00:14,  2.41it/s] 89%|████████▉ | 268/300 [01:04<00:08,  3.62it/s] 90%|█████████ | 271/300 [01:04<00:05,  5.12it/s] 91%|█████████▏| 274/300 [01:05<00:03,  6.84it/s] 92%|█████████▏| 276/300 [01:05<00:02,  8.04it/s] 93%|█████████▎| 278/300 [01:05<00:02,  9.39it/s] 93%|█████████▎| 280/300 [01:05<00:01, 10.94it/s] 94%|█████████▍| 282/300 [01:05<00:01, 11.67it/s] 95%|█████████▌| 285/300 [01:05<00:01, 13.90it/s] 96%|█████████▌| 288/300 [01:05<00:00, 15.97it/s] 97%|█████████▋| 290/300 [01:13<00:09,  1.01it/s] 97%|█████████▋| 292/300 [01:13<00:05,  1.35it/s] 98%|█████████▊| 295/300 [01:13<00:02,  2.02it/s] 99%|█████████▉| 297/300 [01:13<00:01,  2.62it/s]100%|█████████▉| 299/300 [01:13<00:00,  3.41it/s]100%|██████████| 300/300 [01:17<00:00,  3.85it/s]
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+[loop_closure] submap 7: ordered pairs → rights=[0, 1, 2, 3, 4, 5]
+[loop_closure] submap 7: returned 7 matches (cap=7)
+  · q_sm=0007 f=029 → det_sm=0005 f=016 cos=0.8634
+  · q_sm=0007 f=012 → det_sm=0000 f=030 cos=0.8460
+  · q_sm=0007 f=029 → det_sm=0004 f=001 cos=0.8349
+  · q_sm=0007 f=000 → det_sm=0003 f=018 cos=0.8148
+  · q_sm=0007 f=010 → det_sm=0000 f=024 cos=0.8103
+  · q_sm=0007 f=021 → det_sm=0001 f=007 cos=0.8078
+  · q_sm=0007 f=021 → det_sm=0004 f=036 cos=0.8078
+detected_loops [LoopMatch(similarity_score=0.8633740544319153, query_submap_id=7, query_submap_frame=29, detected_submap_id=5, detected_submap_frame=16), LoopMatch(similarity_score=0.8459576368331909, query_submap_id=7, query_submap_frame=12, detected_submap_id=0, detected_submap_frame=30), LoopMatch(similarity_score=0.8348804712295532, query_submap_id=7, query_submap_frame=29, detected_submap_id=4, detected_submap_frame=1), LoopMatch(similarity_score=0.814838171005249, query_submap_id=7, query_submap_frame=0, detected_submap_id=3, detected_submap_frame=18), LoopMatch(similarity_score=0.8102540373802185, query_submap_id=7, query_submap_frame=10, detected_submap_id=0, detected_submap_frame=24), LoopMatch(similarity_score=0.807800829410553, query_submap_id=7, query_submap_frame=21, detected_submap_id=1, detected_submap_frame=7), LoopMatch(similarity_score=0.807800829410553, query_submap_id=7, query_submap_frame=21, detected_submap_id=4, detected_submap_frame=36)]
+21
+CameraHead trunk_fn: B=1, S=40, C=2048
+scale factor 1.9253298893899435
+added between factor 6 7
+added loop closure factor 5 7
+added loop closure factor 0 7
+added loop closure factor 4 7
+added loop closure factor 3 7
+added loop closure factor 0 7
+added loop closure factor 1 7
+added loop closure factor 4 7
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([33, 3, 518, 518])
+[loop_closure] submap 8: ordered pairs → rights=[0, 1, 2, 3, 4, 5, 6]
+[loop_closure] submap 8: returned 7 matches (cap=7)
+  · q_sm=0008 f=027 → det_sm=0006 f=006 cos=0.8287
+  · q_sm=0008 f=024 → det_sm=0001 f=001 cos=0.8208
+  · q_sm=0008 f=019 → det_sm=0004 f=026 cos=0.8189
+  · q_sm=0008 f=021 → det_sm=0001 f=001 cos=0.8140
+  · q_sm=0008 f=019 → det_sm=0006 f=028 cos=0.8107
+  · q_sm=0008 f=024 → det_sm=0005 f=036 cos=0.8071
+  · q_sm=0008 f=024 → det_sm=0006 f=033 cos=0.8071
+detected_loops [LoopMatch(similarity_score=0.828660249710083, query_submap_id=8, query_submap_frame=27, detected_submap_id=6, detected_submap_frame=6), LoopMatch(similarity_score=0.8208000063896179, query_submap_id=8, query_submap_frame=24, detected_submap_id=1, detected_submap_frame=1), LoopMatch(similarity_score=0.818878710269928, query_submap_id=8, query_submap_frame=19, detected_submap_id=4, detected_submap_frame=26), LoopMatch(similarity_score=0.8140102028846741, query_submap_id=8, query_submap_frame=21, detected_submap_id=1, detected_submap_frame=1), LoopMatch(similarity_score=0.8106624484062195, query_submap_id=8, query_submap_frame=19, detected_submap_id=6, detected_submap_frame=28), LoopMatch(similarity_score=0.8071495890617371, query_submap_id=8, query_submap_frame=24, detected_submap_id=5, detected_submap_frame=36), LoopMatch(similarity_score=0.8071495890617371, query_submap_id=8, query_submap_frame=24, detected_submap_id=6, detected_submap_frame=33)]
+21
+CameraHead trunk_fn: B=1, S=40, C=2048
+scale factor 1.6893293570300774
+added between factor 7 8
+added loop closure factor 6 8
+added loop closure factor 1 8
+added loop closure factor 4 8
+added loop closure factor 1 8
+added loop closure factor 6 8
+added loop closure factor 5 8
+added loop closure factor 6 8
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Warning: Cropping image, aspect ratio is not preserved.
+Preprocessed images shape: torch.Size([11, 3, 518, 518])
+[loop_closure] submap 9: ordered pairs → rights=[0, 1, 2, 3, 4, 5, 6, 7]
+[loop_closure] submap 9: returned 7 matches (cap=7)
+  · q_sm=0009 f=007 → det_sm=0001 f=028 cos=0.8717
+  · q_sm=0009 f=008 → det_sm=0003 f=022 cos=0.8361
+  · q_sm=0009 f=010 → det_sm=0003 f=010 cos=0.8279
+  · q_sm=0009 f=010 → det_sm=0005 f=037 cos=0.8279
+  · q_sm=0009 f=003 → det_sm=0001 f=019 cos=0.8071
+  · q_sm=0009 f=003 → det_sm=0002 f=015 cos=0.7892
+  · q_sm=0009 f=003 → det_sm=0004 f=038 cos=0.7892
+detected_loops [LoopMatch(similarity_score=0.8716747760772705, query_submap_id=9, query_submap_frame=7, detected_submap_id=1, detected_submap_frame=28), LoopMatch(similarity_score=0.8361127376556396, query_submap_id=9, query_submap_frame=8, detected_submap_id=3, detected_submap_frame=22), LoopMatch(similarity_score=0.8279200792312622, query_submap_id=9, query_submap_frame=10, detected_submap_id=3, detected_submap_frame=10), LoopMatch(similarity_score=0.8279200792312622, query_submap_id=9, query_submap_frame=10, detected_submap_id=5, detected_submap_frame=37), LoopMatch(similarity_score=0.8070694804191589, query_submap_id=9, query_submap_frame=3, detected_submap_id=1, detected_submap_frame=19), LoopMatch(similarity_score=0.7892439365386963, query_submap_id=9, query_submap_frame=3, detected_submap_id=2, detected_submap_frame=15), LoopMatch(similarity_score=0.7892439365386963, query_submap_id=9, query_submap_frame=3, detected_submap_id=4, detected_submap_frame=38)]
+21
+CameraHead trunk_fn: B=1, S=18, C=2048
+scale factor 1.932569985571397
+added between factor 8 9
+added loop closure factor 1 9
+added loop closure factor 3 9
+added loop closure factor 3 9
+added loop closure factor 5 9
+added loop closure factor 1 9
+added loop closure factor 2 9
+added loop closure factor 4 9
+Total submaps: 10
+Total loop closures: 56
+[02:23:54] STEP 6 done. poses.txt: 308 lines -> /data1/avilasha2/overmaps/vggt_outputs/Urban_CityStreet_Night_Clear/poses.txt
+[02:23:54] SEQUENCE COMPLETE: Urban_CityStreet_Night_Clear
+[02:23:54] ============================================================

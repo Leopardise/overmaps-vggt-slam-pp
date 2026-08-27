@@ -1,0 +1,46 @@
+# third-party clones / off-the-shelf weights (downloaded by setup.sh)
+vggt/
+salad/
+third_party/
+*.ckpt
+*.pt
+*.pth
+*.onnx
+*.bin
+
+# runtime
+outputs/
+logs/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.env
+
+# datasets
+datasets/
+Replica/
+office_loop/
+*.zip
+
+# editor
+.vscode/
+.idea/
+.ipynb_checkpoints/
+
+# large reconstruction dumps (keep compact results/ only)
+*.pcd
+*.ply
+*.glb
+submaps/
+tiles/*.npy
+global_embeddings/
+
+# secrets
+proxy/
+passAuth.txt
+*.pem
